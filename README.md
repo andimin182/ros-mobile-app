@@ -4,13 +4,14 @@ A Flutter mobile application for controlling a Ros based robotic car 4W
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+First, ensure that the rosbridge is running on the Raspi through:
+- $ ros2 launch rosbridge_server rosbridge_websocket_launch.xml
 
-A few resources to get you started if this is your first Flutter project:
+Secondly, launch the Ros2 node on the Raspi that checks for motor commands:
+- $ ros2 run drivers_pkg motor_node
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+Finally, you can launch the flutter application and connect to the Raspi ip.
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+A few important considerations:
+- The app publishes on the topic "/motorCommand'
+- The msg type is of "custom_motor_msgs/msg/MotorCommand". It's basically a string
