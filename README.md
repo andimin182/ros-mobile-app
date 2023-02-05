@@ -13,6 +13,7 @@ Secondly, launch the Ros2 node on the Raspi that checks for motor commands:
 Finally, you can launch the flutter application and connect to the Raspi ip.
 
 A few important considerations:
+- your mobile phone must be connected on the same Wifi network as your Raspi
 - The app acts as a node which publishes commands
 - The app publishes on the topic "/motorCommand'
 - The msg type is of "custom_motor_msgs/msg/MotorCommand". It's basically a string
