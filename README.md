@@ -20,6 +20,6 @@ A few important considerations:
 
 ## TODO features
 - [x] Motor command
-- [] Servo Command
-- [] Camera visualization
-- [] Autonomous Navigation
+- [ ] Servo Command
+- [ ] Camera visualization
+- [ ] Autonomous Navigation
