@@ -1,6 +1,6 @@
 # ros_app
 
-A new Flutter project.
+A Flutter mobile application for controlling a Ros based robotic car 4W
 
 ## Getting Started
 
