@@ -9,7 +9,7 @@ class Control extends StatefulWidget {
 }
 
 class _ControlState extends State<Control> {
-  Ros ros = Ros(url: 'ws://192.168.1.38:9090');
+  Ros ros = Ros(url: 'ws://192.168.1.42:9090');
   Topic command;
   Controller controlAction;
   bool upPressed = false;
@@ -21,8 +21,8 @@ class _ControlState extends State<Control> {
   void initState() {
     command = Topic(
         ros: ros,
-        name: '/command',
-        type: "std_msgs/String",
+        name: '/motorCommand',
+        type: "custom_motor_msgs/msg/MotorCommand",
         reconnectOnClose: true,
         queueLength: 10,
         queueSize: 10);
@@ -188,23 +188,6 @@ class _ControlState extends State<Control> {
                               },
                             ),
                           ),
-                          /*ActionChip(
-                            padding: EdgeInsets.symmetric(
-                                horizontal: 80, vertical: 20),
-                            labelStyle: TextStyle(fontSize: 20),
-                            label: Text(snapshot.data == Status.CONNECTED
-                                ? 'DISCONNECT'
-                                : 'CONNECT'),
-                            backgroundColor: snapshot.data == Status.CONNECTED
-                                ? Colors.green[300]
-                                : Colors.red[300],
-                            onPressed: () {
-                              if (snapshot.data != Status.CONNECTED)
-                                ros.connect();
-                              else
-                                ros.close();
-                            },
-                          ),*/
                         ],
                       ),
                     );

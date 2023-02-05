@@ -1,11 +1,11 @@
 import 'package:roslib/roslib.dart';
 
 class Controller {
-  final forward = {'data': 'forward'};
-  final backward = {'data': 'backward'};
-  final left = {'data': 'left'};
-  final right = {'data': 'right'};
-  final stop = {'data': 'stop'};
+  final forward = {'command': 'Forward'};
+  final backward = {'command': 'Back'};
+  final left = {'command': 'Turn_left'};
+  final right = {'comman': 'Turn_right'};
+  final stop = {'command': 'Stop'};
   Topic topic;
 
   Controller({this.topic});
