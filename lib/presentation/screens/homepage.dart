@@ -11,7 +11,7 @@ class HomePage extends StatelessWidget {
           gradient: LinearGradient(
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
-              colors: [Colors.purple[800], Colors.indigoAccent]),
+              colors: [Colors.purple, Colors.indigoAccent]),
         )),
         title: Center(child: Text('HomePage')),
       ),

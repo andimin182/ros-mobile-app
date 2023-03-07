@@ -1,35 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:roslib/roslib.dart';
+import 'package:ros_app/core/constants.dart';
+import 'package:roslibdart/roslibdart.dart';
 import 'package:ros_app/control.dart';
 import 'package:lite_rolling_switch/lite_rolling_switch.dart';
 
-class Control extends StatefulWidget {
+class MotorControlPage extends StatefulWidget {
   @override
-  _ControlState createState() => _ControlState();
+  _MotorControlPageState createState() => _MotorControlPageState();
 }
 
-class _ControlState extends State<Control> {
-  Ros ros = Ros(url: 'ws://192.168.1.42:9090');
-  Topic command;
-  Controller controlAction;
+class _MotorControlPageState extends State<MotorControlPage> {
+  Ros ros = Ros(url: Constants.raspiUrl);
+  late Topic command;
+  late MotorCommand controlAction;
   bool upPressed = false;
   bool downPressed = false;
   bool leftPressed = false;
   bool rightPressed = false;
-
-  @override
-  void initState() {
-    command = Topic(
-        ros: ros,
-        name: '/motorCommand',
-        type: "custom_motor_msgs/msg/MotorCommand",
-        reconnectOnClose: true,
-        queueLength: 10,
-        queueSize: 10);
-    controlAction = Controller(topic: command);
-
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +28,7 @@ class _ControlState extends State<Control> {
           gradient: LinearGradient(
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
-              colors: [Colors.purple[800], Colors.indigoAccent]),
+              colors: [Colors.purple, Colors.indigoAccent]),
         )),
         title: Center(child: Text('Ros Controller')),
       ),

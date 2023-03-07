@@ -1,14 +1,30 @@
-import 'package:roslib/roslib.dart';
+import 'package:roslibdart/roslibdart.dart';
 
-class Controller {
+import 'core/constants.dart';
+import 'core/topics.dart';
+
+class MotorCommand {
   final forward = {'command': 'Forward'};
   final backward = {'command': 'Back'};
   final left = {'command': 'Turn_left'};
-  final right = {'comman': 'Turn_right'};
+  final right = {'command': 'Turn_right'};
   final stop = {'command': 'Stop'};
-  Topic topic;
+  Ros ros = Ros(url: Constants.raspiUrl);
+  late final Topic topic = Topic(
+      ros: ros,
+      name: MotorTopic.topicName,
+      type: MotorTopic.msgType,
+      reconnectOnClose: true,
+      queueLength: 10,
+      queueSize: 10);
 
-  Controller({this.topic});
+  void connectToRos() {
+    ros.connect();
+  }
+
+  void disconnectFromRos() {
+    ros.close();
+  }
 
   void forwardCommand() async {
     print('Publishing forward command');
