@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
-import 'package:ros_app/control.dart';
+import 'package:ros_app/motorCommand/domain/usecases/control.dart';
 
 part 'motor_control_event.dart';
 part 'motor_control_state.dart';
@@ -14,9 +14,9 @@ class MotorControlBloc extends Bloc<MotorControlEvent, MotorControlState> {
   MotorControlBloc({
     required this.motorCommand,
   }) : super(MotorControlState.initial()) {
-    on<MotorControlEvent>((event, emit) {
-      event.map(
-        moveForward: (_) {
+    on<MotorControlEvent>((event, emit) async {
+      await event.map(
+        moveForward: (_) async {
           if (state.isConnected) {
             emit(state.copyWith(
               isMovingForward: true,
@@ -25,10 +25,10 @@ class MotorControlBloc extends Bloc<MotorControlEvent, MotorControlState> {
               isTurningRight: false,
               isStop: false,
             ));
-            motorCommand.forwardCommand();
+            await motorCommand.forwardCommand();
           }
         },
-        moveBackward: (_) {
+        moveBackward: (_) async {
           if (state.isConnected) {
             emit(state.copyWith(
               isMovingForward: false,
@@ -37,10 +37,10 @@ class MotorControlBloc extends Bloc<MotorControlEvent, MotorControlState> {
               isTurningRight: false,
               isStop: false,
             ));
-            motorCommand.backwardCommand();
+            await motorCommand.backwardCommand();
           }
         },
-        turnLeft: (_) {
+        turnLeft: (_) async {
           if (state.isConnected) {
             emit(state.copyWith(
               isMovingForward: false,
@@ -49,10 +49,10 @@ class MotorControlBloc extends Bloc<MotorControlEvent, MotorControlState> {
               isTurningRight: false,
               isStop: false,
             ));
-            motorCommand.leftCommand();
+            await motorCommand.leftCommand();
           }
         },
-        turnRight: (_) {
+        turnRight: (_) async {
           if (state.isConnected) {
             emit(state.copyWith(
               isMovingForward: false,
@@ -61,10 +61,10 @@ class MotorControlBloc extends Bloc<MotorControlEvent, MotorControlState> {
               isTurningRight: true,
               isStop: false,
             ));
-            motorCommand.rightCommand();
+            await motorCommand.rightCommand();
           }
         },
-        stop: (_) {
+        stop: (_) async {
           if (state.isConnected) {
             emit(state.copyWith(
               isMovingForward: false,
@@ -73,10 +73,10 @@ class MotorControlBloc extends Bloc<MotorControlEvent, MotorControlState> {
               isTurningRight: false,
               isStop: true,
             ));
-            motorCommand.stopCommand();
+            await motorCommand.stopCommand();
           }
         },
-        connect: (_) {
+        connect: (_) async {
           if (state.isConnected) {
             // Disconnect from ros topic
             emit(state.copyWith(
