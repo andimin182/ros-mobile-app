@@ -24,6 +24,7 @@ mixin _$MotorControlEvent {
     required TResult Function() turnRight,
     required TResult Function() stop,
     required TResult Function() connect,
+    required TResult Function() disconnect,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -34,6 +35,7 @@ mixin _$MotorControlEvent {
     TResult? Function()? turnRight,
     TResult? Function()? stop,
     TResult? Function()? connect,
+    TResult? Function()? disconnect,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -44,37 +46,41 @@ mixin _$MotorControlEvent {
     TResult Function()? turnRight,
     TResult Function()? stop,
     TResult Function()? connect,
+    TResult Function()? disconnect,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_MoveForward value) moveForward,
-    required TResult Function(_MoveBackward value) moveBackward,
-    required TResult Function(_TurnLeft value) turnLeft,
-    required TResult Function(_TurnRight value) turnRight,
-    required TResult Function(_Stop value) stop,
-    required TResult Function(_Connect value) connect,
+    required TResult Function(MoveForward value) moveForward,
+    required TResult Function(MoveBackward value) moveBackward,
+    required TResult Function(TurnLeft value) turnLeft,
+    required TResult Function(TurnRight value) turnRight,
+    required TResult Function(Stop value) stop,
+    required TResult Function(Connect value) connect,
+    required TResult Function(Disconnect value) disconnect,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_MoveForward value)? moveForward,
-    TResult? Function(_MoveBackward value)? moveBackward,
-    TResult? Function(_TurnLeft value)? turnLeft,
-    TResult? Function(_TurnRight value)? turnRight,
-    TResult? Function(_Stop value)? stop,
-    TResult? Function(_Connect value)? connect,
+    TResult? Function(MoveForward value)? moveForward,
+    TResult? Function(MoveBackward value)? moveBackward,
+    TResult? Function(TurnLeft value)? turnLeft,
+    TResult? Function(TurnRight value)? turnRight,
+    TResult? Function(Stop value)? stop,
+    TResult? Function(Connect value)? connect,
+    TResult? Function(Disconnect value)? disconnect,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_MoveForward value)? moveForward,
-    TResult Function(_MoveBackward value)? moveBackward,
-    TResult Function(_TurnLeft value)? turnLeft,
-    TResult Function(_TurnRight value)? turnRight,
-    TResult Function(_Stop value)? stop,
-    TResult Function(_Connect value)? connect,
+    TResult Function(MoveForward value)? moveForward,
+    TResult Function(MoveBackward value)? moveBackward,
+    TResult Function(TurnLeft value)? turnLeft,
+    TResult Function(TurnRight value)? turnRight,
+    TResult Function(Stop value)? stop,
+    TResult Function(Connect value)? connect,
+    TResult Function(Disconnect value)? disconnect,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -99,25 +105,25 @@ class _$MotorControlEventCopyWithImpl<$Res, $Val extends MotorControlEvent>
 }
 
 /// @nodoc
-abstract class _$$_MoveForwardCopyWith<$Res> {
-  factory _$$_MoveForwardCopyWith(
-          _$_MoveForward value, $Res Function(_$_MoveForward) then) =
-      __$$_MoveForwardCopyWithImpl<$Res>;
+abstract class _$$MoveForwardCopyWith<$Res> {
+  factory _$$MoveForwardCopyWith(
+          _$MoveForward value, $Res Function(_$MoveForward) then) =
+      __$$MoveForwardCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_MoveForwardCopyWithImpl<$Res>
-    extends _$MotorControlEventCopyWithImpl<$Res, _$_MoveForward>
-    implements _$$_MoveForwardCopyWith<$Res> {
-  __$$_MoveForwardCopyWithImpl(
-      _$_MoveForward _value, $Res Function(_$_MoveForward) _then)
+class __$$MoveForwardCopyWithImpl<$Res>
+    extends _$MotorControlEventCopyWithImpl<$Res, _$MoveForward>
+    implements _$$MoveForwardCopyWith<$Res> {
+  __$$MoveForwardCopyWithImpl(
+      _$MoveForward _value, $Res Function(_$MoveForward) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_MoveForward implements _MoveForward {
-  const _$_MoveForward();
+class _$MoveForward implements MoveForward {
+  const _$MoveForward();
 
   @override
   String toString() {
@@ -127,7 +133,7 @@ class _$_MoveForward implements _MoveForward {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_MoveForward);
+        (other.runtimeType == runtimeType && other is _$MoveForward);
   }
 
   @override
@@ -142,6 +148,7 @@ class _$_MoveForward implements _MoveForward {
     required TResult Function() turnRight,
     required TResult Function() stop,
     required TResult Function() connect,
+    required TResult Function() disconnect,
   }) {
     return moveForward();
   }
@@ -155,6 +162,7 @@ class _$_MoveForward implements _MoveForward {
     TResult? Function()? turnRight,
     TResult? Function()? stop,
     TResult? Function()? connect,
+    TResult? Function()? disconnect,
   }) {
     return moveForward?.call();
   }
@@ -168,6 +176,7 @@ class _$_MoveForward implements _MoveForward {
     TResult Function()? turnRight,
     TResult Function()? stop,
     TResult Function()? connect,
+    TResult Function()? disconnect,
     required TResult orElse(),
   }) {
     if (moveForward != null) {
@@ -179,12 +188,13 @@ class _$_MoveForward implements _MoveForward {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_MoveForward value) moveForward,
-    required TResult Function(_MoveBackward value) moveBackward,
-    required TResult Function(_TurnLeft value) turnLeft,
-    required TResult Function(_TurnRight value) turnRight,
-    required TResult Function(_Stop value) stop,
-    required TResult Function(_Connect value) connect,
+    required TResult Function(MoveForward value) moveForward,
+    required TResult Function(MoveBackward value) moveBackward,
+    required TResult Function(TurnLeft value) turnLeft,
+    required TResult Function(TurnRight value) turnRight,
+    required TResult Function(Stop value) stop,
+    required TResult Function(Connect value) connect,
+    required TResult Function(Disconnect value) disconnect,
   }) {
     return moveForward(this);
   }
@@ -192,12 +202,13 @@ class _$_MoveForward implements _MoveForward {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_MoveForward value)? moveForward,
-    TResult? Function(_MoveBackward value)? moveBackward,
-    TResult? Function(_TurnLeft value)? turnLeft,
-    TResult? Function(_TurnRight value)? turnRight,
-    TResult? Function(_Stop value)? stop,
-    TResult? Function(_Connect value)? connect,
+    TResult? Function(MoveForward value)? moveForward,
+    TResult? Function(MoveBackward value)? moveBackward,
+    TResult? Function(TurnLeft value)? turnLeft,
+    TResult? Function(TurnRight value)? turnRight,
+    TResult? Function(Stop value)? stop,
+    TResult? Function(Connect value)? connect,
+    TResult? Function(Disconnect value)? disconnect,
   }) {
     return moveForward?.call(this);
   }
@@ -205,12 +216,13 @@ class _$_MoveForward implements _MoveForward {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_MoveForward value)? moveForward,
-    TResult Function(_MoveBackward value)? moveBackward,
-    TResult Function(_TurnLeft value)? turnLeft,
-    TResult Function(_TurnRight value)? turnRight,
-    TResult Function(_Stop value)? stop,
-    TResult Function(_Connect value)? connect,
+    TResult Function(MoveForward value)? moveForward,
+    TResult Function(MoveBackward value)? moveBackward,
+    TResult Function(TurnLeft value)? turnLeft,
+    TResult Function(TurnRight value)? turnRight,
+    TResult Function(Stop value)? stop,
+    TResult Function(Connect value)? connect,
+    TResult Function(Disconnect value)? disconnect,
     required TResult orElse(),
   }) {
     if (moveForward != null) {
@@ -220,30 +232,30 @@ class _$_MoveForward implements _MoveForward {
   }
 }
 
-abstract class _MoveForward implements MotorControlEvent {
-  const factory _MoveForward() = _$_MoveForward;
+abstract class MoveForward implements MotorControlEvent {
+  const factory MoveForward() = _$MoveForward;
 }
 
 /// @nodoc
-abstract class _$$_MoveBackwardCopyWith<$Res> {
-  factory _$$_MoveBackwardCopyWith(
-          _$_MoveBackward value, $Res Function(_$_MoveBackward) then) =
-      __$$_MoveBackwardCopyWithImpl<$Res>;
+abstract class _$$MoveBackwardCopyWith<$Res> {
+  factory _$$MoveBackwardCopyWith(
+          _$MoveBackward value, $Res Function(_$MoveBackward) then) =
+      __$$MoveBackwardCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_MoveBackwardCopyWithImpl<$Res>
-    extends _$MotorControlEventCopyWithImpl<$Res, _$_MoveBackward>
-    implements _$$_MoveBackwardCopyWith<$Res> {
-  __$$_MoveBackwardCopyWithImpl(
-      _$_MoveBackward _value, $Res Function(_$_MoveBackward) _then)
+class __$$MoveBackwardCopyWithImpl<$Res>
+    extends _$MotorControlEventCopyWithImpl<$Res, _$MoveBackward>
+    implements _$$MoveBackwardCopyWith<$Res> {
+  __$$MoveBackwardCopyWithImpl(
+      _$MoveBackward _value, $Res Function(_$MoveBackward) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_MoveBackward implements _MoveBackward {
-  const _$_MoveBackward();
+class _$MoveBackward implements MoveBackward {
+  const _$MoveBackward();
 
   @override
   String toString() {
@@ -253,7 +265,7 @@ class _$_MoveBackward implements _MoveBackward {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_MoveBackward);
+        (other.runtimeType == runtimeType && other is _$MoveBackward);
   }
 
   @override
@@ -268,6 +280,7 @@ class _$_MoveBackward implements _MoveBackward {
     required TResult Function() turnRight,
     required TResult Function() stop,
     required TResult Function() connect,
+    required TResult Function() disconnect,
   }) {
     return moveBackward();
   }
@@ -281,6 +294,7 @@ class _$_MoveBackward implements _MoveBackward {
     TResult? Function()? turnRight,
     TResult? Function()? stop,
     TResult? Function()? connect,
+    TResult? Function()? disconnect,
   }) {
     return moveBackward?.call();
   }
@@ -294,6 +308,7 @@ class _$_MoveBackward implements _MoveBackward {
     TResult Function()? turnRight,
     TResult Function()? stop,
     TResult Function()? connect,
+    TResult Function()? disconnect,
     required TResult orElse(),
   }) {
     if (moveBackward != null) {
@@ -305,12 +320,13 @@ class _$_MoveBackward implements _MoveBackward {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_MoveForward value) moveForward,
-    required TResult Function(_MoveBackward value) moveBackward,
-    required TResult Function(_TurnLeft value) turnLeft,
-    required TResult Function(_TurnRight value) turnRight,
-    required TResult Function(_Stop value) stop,
-    required TResult Function(_Connect value) connect,
+    required TResult Function(MoveForward value) moveForward,
+    required TResult Function(MoveBackward value) moveBackward,
+    required TResult Function(TurnLeft value) turnLeft,
+    required TResult Function(TurnRight value) turnRight,
+    required TResult Function(Stop value) stop,
+    required TResult Function(Connect value) connect,
+    required TResult Function(Disconnect value) disconnect,
   }) {
     return moveBackward(this);
   }
@@ -318,12 +334,13 @@ class _$_MoveBackward implements _MoveBackward {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_MoveForward value)? moveForward,
-    TResult? Function(_MoveBackward value)? moveBackward,
-    TResult? Function(_TurnLeft value)? turnLeft,
-    TResult? Function(_TurnRight value)? turnRight,
-    TResult? Function(_Stop value)? stop,
-    TResult? Function(_Connect value)? connect,
+    TResult? Function(MoveForward value)? moveForward,
+    TResult? Function(MoveBackward value)? moveBackward,
+    TResult? Function(TurnLeft value)? turnLeft,
+    TResult? Function(TurnRight value)? turnRight,
+    TResult? Function(Stop value)? stop,
+    TResult? Function(Connect value)? connect,
+    TResult? Function(Disconnect value)? disconnect,
   }) {
     return moveBackward?.call(this);
   }
@@ -331,12 +348,13 @@ class _$_MoveBackward implements _MoveBackward {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_MoveForward value)? moveForward,
-    TResult Function(_MoveBackward value)? moveBackward,
-    TResult Function(_TurnLeft value)? turnLeft,
-    TResult Function(_TurnRight value)? turnRight,
-    TResult Function(_Stop value)? stop,
-    TResult Function(_Connect value)? connect,
+    TResult Function(MoveForward value)? moveForward,
+    TResult Function(MoveBackward value)? moveBackward,
+    TResult Function(TurnLeft value)? turnLeft,
+    TResult Function(TurnRight value)? turnRight,
+    TResult Function(Stop value)? stop,
+    TResult Function(Connect value)? connect,
+    TResult Function(Disconnect value)? disconnect,
     required TResult orElse(),
   }) {
     if (moveBackward != null) {
@@ -346,30 +364,29 @@ class _$_MoveBackward implements _MoveBackward {
   }
 }
 
-abstract class _MoveBackward implements MotorControlEvent {
-  const factory _MoveBackward() = _$_MoveBackward;
+abstract class MoveBackward implements MotorControlEvent {
+  const factory MoveBackward() = _$MoveBackward;
 }
 
 /// @nodoc
-abstract class _$$_TurnLeftCopyWith<$Res> {
-  factory _$$_TurnLeftCopyWith(
-          _$_TurnLeft value, $Res Function(_$_TurnLeft) then) =
-      __$$_TurnLeftCopyWithImpl<$Res>;
+abstract class _$$TurnLeftCopyWith<$Res> {
+  factory _$$TurnLeftCopyWith(
+          _$TurnLeft value, $Res Function(_$TurnLeft) then) =
+      __$$TurnLeftCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_TurnLeftCopyWithImpl<$Res>
-    extends _$MotorControlEventCopyWithImpl<$Res, _$_TurnLeft>
-    implements _$$_TurnLeftCopyWith<$Res> {
-  __$$_TurnLeftCopyWithImpl(
-      _$_TurnLeft _value, $Res Function(_$_TurnLeft) _then)
+class __$$TurnLeftCopyWithImpl<$Res>
+    extends _$MotorControlEventCopyWithImpl<$Res, _$TurnLeft>
+    implements _$$TurnLeftCopyWith<$Res> {
+  __$$TurnLeftCopyWithImpl(_$TurnLeft _value, $Res Function(_$TurnLeft) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_TurnLeft implements _TurnLeft {
-  const _$_TurnLeft();
+class _$TurnLeft implements TurnLeft {
+  const _$TurnLeft();
 
   @override
   String toString() {
@@ -379,7 +396,7 @@ class _$_TurnLeft implements _TurnLeft {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_TurnLeft);
+        (other.runtimeType == runtimeType && other is _$TurnLeft);
   }
 
   @override
@@ -394,6 +411,7 @@ class _$_TurnLeft implements _TurnLeft {
     required TResult Function() turnRight,
     required TResult Function() stop,
     required TResult Function() connect,
+    required TResult Function() disconnect,
   }) {
     return turnLeft();
   }
@@ -407,6 +425,7 @@ class _$_TurnLeft implements _TurnLeft {
     TResult? Function()? turnRight,
     TResult? Function()? stop,
     TResult? Function()? connect,
+    TResult? Function()? disconnect,
   }) {
     return turnLeft?.call();
   }
@@ -420,6 +439,7 @@ class _$_TurnLeft implements _TurnLeft {
     TResult Function()? turnRight,
     TResult Function()? stop,
     TResult Function()? connect,
+    TResult Function()? disconnect,
     required TResult orElse(),
   }) {
     if (turnLeft != null) {
@@ -431,12 +451,13 @@ class _$_TurnLeft implements _TurnLeft {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_MoveForward value) moveForward,
-    required TResult Function(_MoveBackward value) moveBackward,
-    required TResult Function(_TurnLeft value) turnLeft,
-    required TResult Function(_TurnRight value) turnRight,
-    required TResult Function(_Stop value) stop,
-    required TResult Function(_Connect value) connect,
+    required TResult Function(MoveForward value) moveForward,
+    required TResult Function(MoveBackward value) moveBackward,
+    required TResult Function(TurnLeft value) turnLeft,
+    required TResult Function(TurnRight value) turnRight,
+    required TResult Function(Stop value) stop,
+    required TResult Function(Connect value) connect,
+    required TResult Function(Disconnect value) disconnect,
   }) {
     return turnLeft(this);
   }
@@ -444,12 +465,13 @@ class _$_TurnLeft implements _TurnLeft {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_MoveForward value)? moveForward,
-    TResult? Function(_MoveBackward value)? moveBackward,
-    TResult? Function(_TurnLeft value)? turnLeft,
-    TResult? Function(_TurnRight value)? turnRight,
-    TResult? Function(_Stop value)? stop,
-    TResult? Function(_Connect value)? connect,
+    TResult? Function(MoveForward value)? moveForward,
+    TResult? Function(MoveBackward value)? moveBackward,
+    TResult? Function(TurnLeft value)? turnLeft,
+    TResult? Function(TurnRight value)? turnRight,
+    TResult? Function(Stop value)? stop,
+    TResult? Function(Connect value)? connect,
+    TResult? Function(Disconnect value)? disconnect,
   }) {
     return turnLeft?.call(this);
   }
@@ -457,12 +479,13 @@ class _$_TurnLeft implements _TurnLeft {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_MoveForward value)? moveForward,
-    TResult Function(_MoveBackward value)? moveBackward,
-    TResult Function(_TurnLeft value)? turnLeft,
-    TResult Function(_TurnRight value)? turnRight,
-    TResult Function(_Stop value)? stop,
-    TResult Function(_Connect value)? connect,
+    TResult Function(MoveForward value)? moveForward,
+    TResult Function(MoveBackward value)? moveBackward,
+    TResult Function(TurnLeft value)? turnLeft,
+    TResult Function(TurnRight value)? turnRight,
+    TResult Function(Stop value)? stop,
+    TResult Function(Connect value)? connect,
+    TResult Function(Disconnect value)? disconnect,
     required TResult orElse(),
   }) {
     if (turnLeft != null) {
@@ -472,30 +495,30 @@ class _$_TurnLeft implements _TurnLeft {
   }
 }
 
-abstract class _TurnLeft implements MotorControlEvent {
-  const factory _TurnLeft() = _$_TurnLeft;
+abstract class TurnLeft implements MotorControlEvent {
+  const factory TurnLeft() = _$TurnLeft;
 }
 
 /// @nodoc
-abstract class _$$_TurnRightCopyWith<$Res> {
-  factory _$$_TurnRightCopyWith(
-          _$_TurnRight value, $Res Function(_$_TurnRight) then) =
-      __$$_TurnRightCopyWithImpl<$Res>;
+abstract class _$$TurnRightCopyWith<$Res> {
+  factory _$$TurnRightCopyWith(
+          _$TurnRight value, $Res Function(_$TurnRight) then) =
+      __$$TurnRightCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_TurnRightCopyWithImpl<$Res>
-    extends _$MotorControlEventCopyWithImpl<$Res, _$_TurnRight>
-    implements _$$_TurnRightCopyWith<$Res> {
-  __$$_TurnRightCopyWithImpl(
-      _$_TurnRight _value, $Res Function(_$_TurnRight) _then)
+class __$$TurnRightCopyWithImpl<$Res>
+    extends _$MotorControlEventCopyWithImpl<$Res, _$TurnRight>
+    implements _$$TurnRightCopyWith<$Res> {
+  __$$TurnRightCopyWithImpl(
+      _$TurnRight _value, $Res Function(_$TurnRight) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_TurnRight implements _TurnRight {
-  const _$_TurnRight();
+class _$TurnRight implements TurnRight {
+  const _$TurnRight();
 
   @override
   String toString() {
@@ -505,7 +528,7 @@ class _$_TurnRight implements _TurnRight {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_TurnRight);
+        (other.runtimeType == runtimeType && other is _$TurnRight);
   }
 
   @override
@@ -520,6 +543,7 @@ class _$_TurnRight implements _TurnRight {
     required TResult Function() turnRight,
     required TResult Function() stop,
     required TResult Function() connect,
+    required TResult Function() disconnect,
   }) {
     return turnRight();
   }
@@ -533,6 +557,7 @@ class _$_TurnRight implements _TurnRight {
     TResult? Function()? turnRight,
     TResult? Function()? stop,
     TResult? Function()? connect,
+    TResult? Function()? disconnect,
   }) {
     return turnRight?.call();
   }
@@ -546,6 +571,7 @@ class _$_TurnRight implements _TurnRight {
     TResult Function()? turnRight,
     TResult Function()? stop,
     TResult Function()? connect,
+    TResult Function()? disconnect,
     required TResult orElse(),
   }) {
     if (turnRight != null) {
@@ -557,12 +583,13 @@ class _$_TurnRight implements _TurnRight {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_MoveForward value) moveForward,
-    required TResult Function(_MoveBackward value) moveBackward,
-    required TResult Function(_TurnLeft value) turnLeft,
-    required TResult Function(_TurnRight value) turnRight,
-    required TResult Function(_Stop value) stop,
-    required TResult Function(_Connect value) connect,
+    required TResult Function(MoveForward value) moveForward,
+    required TResult Function(MoveBackward value) moveBackward,
+    required TResult Function(TurnLeft value) turnLeft,
+    required TResult Function(TurnRight value) turnRight,
+    required TResult Function(Stop value) stop,
+    required TResult Function(Connect value) connect,
+    required TResult Function(Disconnect value) disconnect,
   }) {
     return turnRight(this);
   }
@@ -570,12 +597,13 @@ class _$_TurnRight implements _TurnRight {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_MoveForward value)? moveForward,
-    TResult? Function(_MoveBackward value)? moveBackward,
-    TResult? Function(_TurnLeft value)? turnLeft,
-    TResult? Function(_TurnRight value)? turnRight,
-    TResult? Function(_Stop value)? stop,
-    TResult? Function(_Connect value)? connect,
+    TResult? Function(MoveForward value)? moveForward,
+    TResult? Function(MoveBackward value)? moveBackward,
+    TResult? Function(TurnLeft value)? turnLeft,
+    TResult? Function(TurnRight value)? turnRight,
+    TResult? Function(Stop value)? stop,
+    TResult? Function(Connect value)? connect,
+    TResult? Function(Disconnect value)? disconnect,
   }) {
     return turnRight?.call(this);
   }
@@ -583,12 +611,13 @@ class _$_TurnRight implements _TurnRight {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_MoveForward value)? moveForward,
-    TResult Function(_MoveBackward value)? moveBackward,
-    TResult Function(_TurnLeft value)? turnLeft,
-    TResult Function(_TurnRight value)? turnRight,
-    TResult Function(_Stop value)? stop,
-    TResult Function(_Connect value)? connect,
+    TResult Function(MoveForward value)? moveForward,
+    TResult Function(MoveBackward value)? moveBackward,
+    TResult Function(TurnLeft value)? turnLeft,
+    TResult Function(TurnRight value)? turnRight,
+    TResult Function(Stop value)? stop,
+    TResult Function(Connect value)? connect,
+    TResult Function(Disconnect value)? disconnect,
     required TResult orElse(),
   }) {
     if (turnRight != null) {
@@ -598,28 +627,28 @@ class _$_TurnRight implements _TurnRight {
   }
 }
 
-abstract class _TurnRight implements MotorControlEvent {
-  const factory _TurnRight() = _$_TurnRight;
+abstract class TurnRight implements MotorControlEvent {
+  const factory TurnRight() = _$TurnRight;
 }
 
 /// @nodoc
-abstract class _$$_StopCopyWith<$Res> {
-  factory _$$_StopCopyWith(_$_Stop value, $Res Function(_$_Stop) then) =
-      __$$_StopCopyWithImpl<$Res>;
+abstract class _$$StopCopyWith<$Res> {
+  factory _$$StopCopyWith(_$Stop value, $Res Function(_$Stop) then) =
+      __$$StopCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_StopCopyWithImpl<$Res>
-    extends _$MotorControlEventCopyWithImpl<$Res, _$_Stop>
-    implements _$$_StopCopyWith<$Res> {
-  __$$_StopCopyWithImpl(_$_Stop _value, $Res Function(_$_Stop) _then)
+class __$$StopCopyWithImpl<$Res>
+    extends _$MotorControlEventCopyWithImpl<$Res, _$Stop>
+    implements _$$StopCopyWith<$Res> {
+  __$$StopCopyWithImpl(_$Stop _value, $Res Function(_$Stop) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Stop implements _Stop {
-  const _$_Stop();
+class _$Stop implements Stop {
+  const _$Stop();
 
   @override
   String toString() {
@@ -629,7 +658,7 @@ class _$_Stop implements _Stop {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Stop);
+        (other.runtimeType == runtimeType && other is _$Stop);
   }
 
   @override
@@ -644,6 +673,7 @@ class _$_Stop implements _Stop {
     required TResult Function() turnRight,
     required TResult Function() stop,
     required TResult Function() connect,
+    required TResult Function() disconnect,
   }) {
     return stop();
   }
@@ -657,6 +687,7 @@ class _$_Stop implements _Stop {
     TResult? Function()? turnRight,
     TResult? Function()? stop,
     TResult? Function()? connect,
+    TResult? Function()? disconnect,
   }) {
     return stop?.call();
   }
@@ -670,6 +701,7 @@ class _$_Stop implements _Stop {
     TResult Function()? turnRight,
     TResult Function()? stop,
     TResult Function()? connect,
+    TResult Function()? disconnect,
     required TResult orElse(),
   }) {
     if (stop != null) {
@@ -681,12 +713,13 @@ class _$_Stop implements _Stop {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_MoveForward value) moveForward,
-    required TResult Function(_MoveBackward value) moveBackward,
-    required TResult Function(_TurnLeft value) turnLeft,
-    required TResult Function(_TurnRight value) turnRight,
-    required TResult Function(_Stop value) stop,
-    required TResult Function(_Connect value) connect,
+    required TResult Function(MoveForward value) moveForward,
+    required TResult Function(MoveBackward value) moveBackward,
+    required TResult Function(TurnLeft value) turnLeft,
+    required TResult Function(TurnRight value) turnRight,
+    required TResult Function(Stop value) stop,
+    required TResult Function(Connect value) connect,
+    required TResult Function(Disconnect value) disconnect,
   }) {
     return stop(this);
   }
@@ -694,12 +727,13 @@ class _$_Stop implements _Stop {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_MoveForward value)? moveForward,
-    TResult? Function(_MoveBackward value)? moveBackward,
-    TResult? Function(_TurnLeft value)? turnLeft,
-    TResult? Function(_TurnRight value)? turnRight,
-    TResult? Function(_Stop value)? stop,
-    TResult? Function(_Connect value)? connect,
+    TResult? Function(MoveForward value)? moveForward,
+    TResult? Function(MoveBackward value)? moveBackward,
+    TResult? Function(TurnLeft value)? turnLeft,
+    TResult? Function(TurnRight value)? turnRight,
+    TResult? Function(Stop value)? stop,
+    TResult? Function(Connect value)? connect,
+    TResult? Function(Disconnect value)? disconnect,
   }) {
     return stop?.call(this);
   }
@@ -707,12 +741,13 @@ class _$_Stop implements _Stop {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_MoveForward value)? moveForward,
-    TResult Function(_MoveBackward value)? moveBackward,
-    TResult Function(_TurnLeft value)? turnLeft,
-    TResult Function(_TurnRight value)? turnRight,
-    TResult Function(_Stop value)? stop,
-    TResult Function(_Connect value)? connect,
+    TResult Function(MoveForward value)? moveForward,
+    TResult Function(MoveBackward value)? moveBackward,
+    TResult Function(TurnLeft value)? turnLeft,
+    TResult Function(TurnRight value)? turnRight,
+    TResult Function(Stop value)? stop,
+    TResult Function(Connect value)? connect,
+    TResult Function(Disconnect value)? disconnect,
     required TResult orElse(),
   }) {
     if (stop != null) {
@@ -722,29 +757,28 @@ class _$_Stop implements _Stop {
   }
 }
 
-abstract class _Stop implements MotorControlEvent {
-  const factory _Stop() = _$_Stop;
+abstract class Stop implements MotorControlEvent {
+  const factory Stop() = _$Stop;
 }
 
 /// @nodoc
-abstract class _$$_ConnectCopyWith<$Res> {
-  factory _$$_ConnectCopyWith(
-          _$_Connect value, $Res Function(_$_Connect) then) =
-      __$$_ConnectCopyWithImpl<$Res>;
+abstract class _$$ConnectCopyWith<$Res> {
+  factory _$$ConnectCopyWith(_$Connect value, $Res Function(_$Connect) then) =
+      __$$ConnectCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_ConnectCopyWithImpl<$Res>
-    extends _$MotorControlEventCopyWithImpl<$Res, _$_Connect>
-    implements _$$_ConnectCopyWith<$Res> {
-  __$$_ConnectCopyWithImpl(_$_Connect _value, $Res Function(_$_Connect) _then)
+class __$$ConnectCopyWithImpl<$Res>
+    extends _$MotorControlEventCopyWithImpl<$Res, _$Connect>
+    implements _$$ConnectCopyWith<$Res> {
+  __$$ConnectCopyWithImpl(_$Connect _value, $Res Function(_$Connect) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Connect implements _Connect {
-  const _$_Connect();
+class _$Connect implements Connect {
+  const _$Connect();
 
   @override
   String toString() {
@@ -754,7 +788,7 @@ class _$_Connect implements _Connect {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Connect);
+        (other.runtimeType == runtimeType && other is _$Connect);
   }
 
   @override
@@ -769,6 +803,7 @@ class _$_Connect implements _Connect {
     required TResult Function() turnRight,
     required TResult Function() stop,
     required TResult Function() connect,
+    required TResult Function() disconnect,
   }) {
     return connect();
   }
@@ -782,6 +817,7 @@ class _$_Connect implements _Connect {
     TResult? Function()? turnRight,
     TResult? Function()? stop,
     TResult? Function()? connect,
+    TResult? Function()? disconnect,
   }) {
     return connect?.call();
   }
@@ -795,6 +831,7 @@ class _$_Connect implements _Connect {
     TResult Function()? turnRight,
     TResult Function()? stop,
     TResult Function()? connect,
+    TResult Function()? disconnect,
     required TResult orElse(),
   }) {
     if (connect != null) {
@@ -806,12 +843,13 @@ class _$_Connect implements _Connect {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_MoveForward value) moveForward,
-    required TResult Function(_MoveBackward value) moveBackward,
-    required TResult Function(_TurnLeft value) turnLeft,
-    required TResult Function(_TurnRight value) turnRight,
-    required TResult Function(_Stop value) stop,
-    required TResult Function(_Connect value) connect,
+    required TResult Function(MoveForward value) moveForward,
+    required TResult Function(MoveBackward value) moveBackward,
+    required TResult Function(TurnLeft value) turnLeft,
+    required TResult Function(TurnRight value) turnRight,
+    required TResult Function(Stop value) stop,
+    required TResult Function(Connect value) connect,
+    required TResult Function(Disconnect value) disconnect,
   }) {
     return connect(this);
   }
@@ -819,12 +857,13 @@ class _$_Connect implements _Connect {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_MoveForward value)? moveForward,
-    TResult? Function(_MoveBackward value)? moveBackward,
-    TResult? Function(_TurnLeft value)? turnLeft,
-    TResult? Function(_TurnRight value)? turnRight,
-    TResult? Function(_Stop value)? stop,
-    TResult? Function(_Connect value)? connect,
+    TResult? Function(MoveForward value)? moveForward,
+    TResult? Function(MoveBackward value)? moveBackward,
+    TResult? Function(TurnLeft value)? turnLeft,
+    TResult? Function(TurnRight value)? turnRight,
+    TResult? Function(Stop value)? stop,
+    TResult? Function(Connect value)? connect,
+    TResult? Function(Disconnect value)? disconnect,
   }) {
     return connect?.call(this);
   }
@@ -832,12 +871,13 @@ class _$_Connect implements _Connect {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_MoveForward value)? moveForward,
-    TResult Function(_MoveBackward value)? moveBackward,
-    TResult Function(_TurnLeft value)? turnLeft,
-    TResult Function(_TurnRight value)? turnRight,
-    TResult Function(_Stop value)? stop,
-    TResult Function(_Connect value)? connect,
+    TResult Function(MoveForward value)? moveForward,
+    TResult Function(MoveBackward value)? moveBackward,
+    TResult Function(TurnLeft value)? turnLeft,
+    TResult Function(TurnRight value)? turnRight,
+    TResult Function(Stop value)? stop,
+    TResult Function(Connect value)? connect,
+    TResult Function(Disconnect value)? disconnect,
     required TResult orElse(),
   }) {
     if (connect != null) {
@@ -847,8 +887,140 @@ class _$_Connect implements _Connect {
   }
 }
 
-abstract class _Connect implements MotorControlEvent {
-  const factory _Connect() = _$_Connect;
+abstract class Connect implements MotorControlEvent {
+  const factory Connect() = _$Connect;
+}
+
+/// @nodoc
+abstract class _$$DisconnectCopyWith<$Res> {
+  factory _$$DisconnectCopyWith(
+          _$Disconnect value, $Res Function(_$Disconnect) then) =
+      __$$DisconnectCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$DisconnectCopyWithImpl<$Res>
+    extends _$MotorControlEventCopyWithImpl<$Res, _$Disconnect>
+    implements _$$DisconnectCopyWith<$Res> {
+  __$$DisconnectCopyWithImpl(
+      _$Disconnect _value, $Res Function(_$Disconnect) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$Disconnect implements Disconnect {
+  const _$Disconnect();
+
+  @override
+  String toString() {
+    return 'MotorControlEvent.disconnect()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$Disconnect);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() moveForward,
+    required TResult Function() moveBackward,
+    required TResult Function() turnLeft,
+    required TResult Function() turnRight,
+    required TResult Function() stop,
+    required TResult Function() connect,
+    required TResult Function() disconnect,
+  }) {
+    return disconnect();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? moveForward,
+    TResult? Function()? moveBackward,
+    TResult? Function()? turnLeft,
+    TResult? Function()? turnRight,
+    TResult? Function()? stop,
+    TResult? Function()? connect,
+    TResult? Function()? disconnect,
+  }) {
+    return disconnect?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? moveForward,
+    TResult Function()? moveBackward,
+    TResult Function()? turnLeft,
+    TResult Function()? turnRight,
+    TResult Function()? stop,
+    TResult Function()? connect,
+    TResult Function()? disconnect,
+    required TResult orElse(),
+  }) {
+    if (disconnect != null) {
+      return disconnect();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(MoveForward value) moveForward,
+    required TResult Function(MoveBackward value) moveBackward,
+    required TResult Function(TurnLeft value) turnLeft,
+    required TResult Function(TurnRight value) turnRight,
+    required TResult Function(Stop value) stop,
+    required TResult Function(Connect value) connect,
+    required TResult Function(Disconnect value) disconnect,
+  }) {
+    return disconnect(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(MoveForward value)? moveForward,
+    TResult? Function(MoveBackward value)? moveBackward,
+    TResult? Function(TurnLeft value)? turnLeft,
+    TResult? Function(TurnRight value)? turnRight,
+    TResult? Function(Stop value)? stop,
+    TResult? Function(Connect value)? connect,
+    TResult? Function(Disconnect value)? disconnect,
+  }) {
+    return disconnect?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(MoveForward value)? moveForward,
+    TResult Function(MoveBackward value)? moveBackward,
+    TResult Function(TurnLeft value)? turnLeft,
+    TResult Function(TurnRight value)? turnRight,
+    TResult Function(Stop value)? stop,
+    TResult Function(Connect value)? connect,
+    TResult Function(Disconnect value)? disconnect,
+    required TResult orElse(),
+  }) {
+    if (disconnect != null) {
+      return disconnect(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class Disconnect implements MotorControlEvent {
+  const factory Disconnect() = _$Disconnect;
 }
 
 /// @nodoc
@@ -859,6 +1031,7 @@ mixin _$MotorControlState {
   bool get isTurningRight => throw _privateConstructorUsedError;
   bool get isStop => throw _privateConstructorUsedError;
   bool get isConnected => throw _privateConstructorUsedError;
+  Stream<Object> get rosStream => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $MotorControlStateCopyWith<MotorControlState> get copyWith =>
@@ -877,7 +1050,8 @@ abstract class $MotorControlStateCopyWith<$Res> {
       bool isTurningLeft,
       bool isTurningRight,
       bool isStop,
-      bool isConnected});
+      bool isConnected,
+      Stream<Object> rosStream});
 }
 
 /// @nodoc
@@ -899,6 +1073,7 @@ class _$MotorControlStateCopyWithImpl<$Res, $Val extends MotorControlState>
     Object? isTurningRight = null,
     Object? isStop = null,
     Object? isConnected = null,
+    Object? rosStream = null,
   }) {
     return _then(_value.copyWith(
       isMovingForward: null == isMovingForward
@@ -925,6 +1100,10 @@ class _$MotorControlStateCopyWithImpl<$Res, $Val extends MotorControlState>
           ? _value.isConnected
           : isConnected // ignore: cast_nullable_to_non_nullable
               as bool,
+      rosStream: null == rosStream
+          ? _value.rosStream
+          : rosStream // ignore: cast_nullable_to_non_nullable
+              as Stream<Object>,
     ) as $Val);
   }
 }
@@ -943,7 +1122,8 @@ abstract class _$$_MotorControlStateCopyWith<$Res>
       bool isTurningLeft,
       bool isTurningRight,
       bool isStop,
-      bool isConnected});
+      bool isConnected,
+      Stream<Object> rosStream});
 }
 
 /// @nodoc
@@ -963,6 +1143,7 @@ class __$$_MotorControlStateCopyWithImpl<$Res>
     Object? isTurningRight = null,
     Object? isStop = null,
     Object? isConnected = null,
+    Object? rosStream = null,
   }) {
     return _then(_$_MotorControlState(
       isMovingForward: null == isMovingForward
@@ -989,6 +1170,10 @@ class __$$_MotorControlStateCopyWithImpl<$Res>
           ? _value.isConnected
           : isConnected // ignore: cast_nullable_to_non_nullable
               as bool,
+      rosStream: null == rosStream
+          ? _value.rosStream
+          : rosStream // ignore: cast_nullable_to_non_nullable
+              as Stream<Object>,
     ));
   }
 }
@@ -1002,7 +1187,8 @@ class _$_MotorControlState implements _MotorControlState {
       required this.isTurningLeft,
       required this.isTurningRight,
       required this.isStop,
-      required this.isConnected});
+      required this.isConnected,
+      required this.rosStream});
 
   @override
   final bool isMovingForward;
@@ -1016,10 +1202,12 @@ class _$_MotorControlState implements _MotorControlState {
   final bool isStop;
   @override
   final bool isConnected;
+  @override
+  final Stream<Object> rosStream;
 
   @override
   String toString() {
-    return 'MotorControlState(isMovingForward: $isMovingForward, isMovingBackward: $isMovingBackward, isTurningLeft: $isTurningLeft, isTurningRight: $isTurningRight, isStop: $isStop, isConnected: $isConnected)';
+    return 'MotorControlState(isMovingForward: $isMovingForward, isMovingBackward: $isMovingBackward, isTurningLeft: $isTurningLeft, isTurningRight: $isTurningRight, isStop: $isStop, isConnected: $isConnected, rosStream: $rosStream)';
   }
 
   @override
@@ -1037,12 +1225,21 @@ class _$_MotorControlState implements _MotorControlState {
                 other.isTurningRight == isTurningRight) &&
             (identical(other.isStop, isStop) || other.isStop == isStop) &&
             (identical(other.isConnected, isConnected) ||
-                other.isConnected == isConnected));
+                other.isConnected == isConnected) &&
+            (identical(other.rosStream, rosStream) ||
+                other.rosStream == rosStream));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, isMovingForward,
-      isMovingBackward, isTurningLeft, isTurningRight, isStop, isConnected);
+  int get hashCode => Object.hash(
+      runtimeType,
+      isMovingForward,
+      isMovingBackward,
+      isTurningLeft,
+      isTurningRight,
+      isStop,
+      isConnected,
+      rosStream);
 
   @JsonKey(ignore: true)
   @override
@@ -1059,7 +1256,8 @@ abstract class _MotorControlState implements MotorControlState {
       required final bool isTurningLeft,
       required final bool isTurningRight,
       required final bool isStop,
-      required final bool isConnected}) = _$_MotorControlState;
+      required final bool isConnected,
+      required final Stream<Object> rosStream}) = _$_MotorControlState;
 
   @override
   bool get isMovingForward;
@@ -1073,6 +1271,8 @@ abstract class _MotorControlState implements MotorControlState {
   bool get isStop;
   @override
   bool get isConnected;
+  @override
+  Stream<Object> get rosStream;
   @override
   @JsonKey(ignore: true)
   _$$_MotorControlStateCopyWith<_$_MotorControlState> get copyWith =>

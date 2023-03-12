@@ -1,15 +1,18 @@
+import 'package:injectable/injectable.dart';
 import 'package:ros_app/core/constants.dart';
 import 'package:ros_app/core/topics.dart';
 import 'package:ros_app/core/user_exceptions.dart';
 import 'package:roslibdart/roslibdart.dart';
 
+@injectable
 class MotorCommand {
   final forward = {'command': 'Forward'};
   final backward = {'command': 'Back'};
   final left = {'command': 'Turn_left'};
   final right = {'command': 'Turn_right'};
   final stop = {'command': 'Stop'};
-  Ros ros = Ros(url: Constants.raspiUrl);
+  final Ros ros = Ros(url: Constants.raspiUrl);
+
   late final Topic topic = Topic(
       ros: ros,
       name: MotorTopic.topicName,

@@ -9,6 +9,7 @@ class MotorControlState with _$MotorControlState {
     required bool isTurningRight,
     required bool isStop,
     required bool isConnected,
+    required Stream<Object> rosStream,
   }) = _MotorControlState;
 
   factory MotorControlState.initial() {
@@ -19,6 +20,7 @@ class MotorControlState with _$MotorControlState {
       isTurningRight: false,
       isStop: true,
       isConnected: false,
+      rosStream: Stream.empty(),
     );
   }
 }

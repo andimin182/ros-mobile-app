@@ -49,7 +49,9 @@ class HomePage extends StatelessWidget {
                     backgroundColor: Colors.grey,
                     label: Text('Camera'),
                     pressElevation: 10,
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/camera');
+                    },
                   ),
                 ),
                 SizedBox(height: 10),

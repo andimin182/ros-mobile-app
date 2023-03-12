@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
-import 'package:ros_app/motorCommand/domain/usecases/control.dart';
+import 'package:ros_app/motorCommand/domain/repositories/control_repo.dart';
 
 part 'motor_control_event.dart';
 part 'motor_control_state.dart';
@@ -77,29 +77,30 @@ class MotorControlBloc extends Bloc<MotorControlEvent, MotorControlState> {
           }
         },
         connect: (_) async {
-          if (state.isConnected) {
-            // Disconnect from ros topic
-            emit(state.copyWith(
-              isMovingForward: false,
-              isMovingBackward: false,
-              isTurningLeft: false,
-              isTurningRight: false,
-              isStop: true,
-              isConnected: false,
-            ));
-            motorCommand.disconnectFromRos();
-          } else {
-            // Connect to ros topic
-            emit(state.copyWith(
-              isMovingForward: false,
-              isMovingBackward: false,
-              isTurningLeft: false,
-              isTurningRight: false,
-              isStop: true,
-              isConnected: true,
-            ));
-            motorCommand.connectToRos();
-          }
+          // Connect to ros topic
+          emit(state.copyWith(
+            isMovingForward: false,
+            isMovingBackward: false,
+            isTurningLeft: false,
+            isTurningRight: false,
+            isStop: true,
+            isConnected: true,
+            rosStream: motorCommand.ros.statusStream,
+          ));
+          motorCommand.connectToRos();
+        },
+        disconnect: (_) {
+          // Disconnect from ros topic
+          emit(state.copyWith(
+            isMovingForward: false,
+            isMovingBackward: false,
+            isTurningLeft: false,
+            isTurningRight: false,
+            isStop: true,
+            isConnected: false,
+            rosStream: Stream.empty(),
+          ));
+          motorCommand.disconnectFromRos();
         },
       );
     });

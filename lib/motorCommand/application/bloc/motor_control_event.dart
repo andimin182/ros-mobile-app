@@ -1,11 +1,12 @@
 part of 'motor_control_bloc.dart';
 
 @freezed
-abstract class MotorControlEvent with _$MotorControlEvent {
-  const factory MotorControlEvent.moveForward() = _MoveForward;
-  const factory MotorControlEvent.moveBackward() = _MoveBackward;
-  const factory MotorControlEvent.turnLeft() = _TurnLeft;
-  const factory MotorControlEvent.turnRight() = _TurnRight;
-  const factory MotorControlEvent.stop() = _Stop;
-  const factory MotorControlEvent.connect() = _Connect;
+class MotorControlEvent with _$MotorControlEvent {
+  const factory MotorControlEvent.moveForward() = MoveForward;
+  const factory MotorControlEvent.moveBackward() = MoveBackward;
+  const factory MotorControlEvent.turnLeft() = TurnLeft;
+  const factory MotorControlEvent.turnRight() = TurnRight;
+  const factory MotorControlEvent.stop() = Stop;
+  const factory MotorControlEvent.connect() = Connect;
+  const factory MotorControlEvent.disconnect() = Disconnect;
 }

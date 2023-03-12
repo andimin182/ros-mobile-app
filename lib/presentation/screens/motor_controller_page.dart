@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:ros_app/core/constants.dart';
 import 'package:ros_app/motorCommand/application/bloc/motor_control_bloc.dart';
-import 'package:roslibdart/roslibdart.dart';
-import 'package:ros_app/motorCommand/domain/repositories/control_repo.dart';
 import 'package:lite_rolling_switch/lite_rolling_switch.dart';
 
 class MotorControlPage extends StatefulWidget {
@@ -12,14 +9,6 @@ class MotorControlPage extends StatefulWidget {
 }
 
 class _MotorControlPageState extends State<MotorControlPage> {
-  Ros ros = Ros(url: Constants.raspiUrl);
-  late Topic command;
-  late MotorCommand controlAction;
-  bool upPressed = false;
-  bool downPressed = false;
-  bool leftPressed = false;
-  bool rightPressed = false;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,115 +37,94 @@ class _MotorControlPageState extends State<MotorControlPage> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Column(
-                  children: <Widget>[
-                    Container(
-                      height: 80.0,
-                      width: 100,
-                      child: ElevatedButton(
-                        style: ButtonStyle(
-                            backgroundColor: upPressed
-                                ? MaterialStateProperty.all(Colors.purple[800])
-                                : MaterialStateProperty.all(
-                                    Colors.indigoAccent)),
-                        child: Icon(Icons.arrow_upward_sharp, size: 70),
-                        onPressed: () {
-                          setState(() {
-                            if (upPressed == false) {
-                              upPressed = true;
-                              controlAction.forwardCommand();
-                            } else {
-                              upPressed = false;
-                              controlAction.stopCommand();
-                            }
-                          });
-                        },
-                      ),
+                  children: [
+                    ElevatedButton(
+                      style: ButtonStyle(
+                          padding: MaterialStateProperty.all(
+                              const EdgeInsets.all(10)),
+                          backgroundColor: state.isMovingForward
+                              ? MaterialStateProperty.all(Colors.purple[800])
+                              : MaterialStateProperty.all(Colors.indigoAccent)),
+                      child: Icon(Icons.keyboard_arrow_up_outlined, size: 70),
+                      onPressed: () {
+                        if (state.isMovingForward == false) {
+                          BlocProvider.of<MotorControlBloc>(context)
+                              .add(MotorControlEvent.moveForward());
+                        } else {
+                          BlocProvider.of<MotorControlBloc>(context)
+                              .add(MotorControlEvent.stop());
+                        }
+                      },
                     ),
-                    SizedBox(height: 20),
-                    Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: <Widget>[
-                          Container(
-                            height: 100,
-                            width: 80.0,
-                            child: ElevatedButton(
-                              style: ButtonStyle(
-                                  backgroundColor: leftPressed
-                                      ? MaterialStateProperty.all(
-                                          Colors.purple[800])
-                                      : MaterialStateProperty.all(
-                                          Colors.indigoAccent)),
-                              child: Icon(Icons.arrow_back_sharp, size: 70),
-                              onPressed: () {
-                                setState(() {
-                                  if (leftPressed == false) {
-                                    leftPressed = true;
-                                    controlAction.leftCommand();
-                                  } else {
-                                    leftPressed = false;
-                                    controlAction.stopCommand();
-                                  }
-                                });
-                              },
-                            ),
-                          ),
-                          SizedBox(width: 120),
-                          Container(
-                            height: 100,
-                            width: 80.0,
-                            child: ElevatedButton(
-                              style: ButtonStyle(
-                                  backgroundColor: rightPressed
-                                      ? MaterialStateProperty.all(
-                                          Colors.purple[800])
-                                      : MaterialStateProperty.all(
-                                          Colors.indigoAccent)),
-                              child: Icon(Icons.arrow_forward_sharp, size: 70),
-                              onPressed: () {
-                                setState(() {
-                                  if (rightPressed == false) {
-                                    rightPressed = true;
-                                    controlAction.rightCommand();
-                                  } else {
-                                    rightPressed = false;
-                                    controlAction.stopCommand();
-                                  }
-                                });
-                              },
-                            ),
-                          ),
-                        ]),
-                    SizedBox(height: 20),
-                    Container(
-                      height: 80.0,
-                      width: 100,
-                      child: ElevatedButton(
+                    SizedBox(height: 30),
+                    Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                      ElevatedButton(
                         style: ButtonStyle(
-                            backgroundColor: downPressed
+                            padding: MaterialStateProperty.all(
+                                const EdgeInsets.all(10)),
+                            backgroundColor: state.isTurningLeft
                                 ? MaterialStateProperty.all(Colors.purple[800])
                                 : MaterialStateProperty.all(
                                     Colors.indigoAccent)),
-                        child: Icon(Icons.arrow_downward_sharp, size: 70),
+                        child:
+                            Icon(Icons.keyboard_arrow_left_outlined, size: 70),
                         onPressed: () {
-                          setState(() {
-                            if (downPressed == false) {
-                              downPressed = true;
-                              controlAction.backwardCommand();
-                            } else {
-                              downPressed = false;
-                              controlAction.stopCommand();
-                            }
-                          });
+                          if (state.isTurningLeft == false) {
+                            BlocProvider.of<MotorControlBloc>(context)
+                                .add(MotorControlEvent.turnLeft());
+                          } else {
+                            BlocProvider.of<MotorControlBloc>(context)
+                                .add(MotorControlEvent.stop());
+                          }
                         },
                       ),
+                      SizedBox(width: 120),
+                      ElevatedButton(
+                        style: ButtonStyle(
+                            padding: MaterialStateProperty.all(
+                                const EdgeInsets.all(10)),
+                            backgroundColor: state.isTurningRight
+                                ? MaterialStateProperty.all(Colors.purple[800])
+                                : MaterialStateProperty.all(
+                                    Colors.indigoAccent)),
+                        child:
+                            Icon(Icons.keyboard_arrow_right_outlined, size: 70),
+                        onPressed: () {
+                          if (state.isTurningRight == false) {
+                            BlocProvider.of<MotorControlBloc>(context)
+                                .add(MotorControlEvent.turnRight());
+                          } else {
+                            BlocProvider.of<MotorControlBloc>(context)
+                                .add(MotorControlEvent.stop());
+                          }
+                        },
+                      ),
+                    ]),
+                    SizedBox(height: 30),
+                    ElevatedButton(
+                      style: ButtonStyle(
+                          padding: MaterialStateProperty.all(
+                              const EdgeInsets.all(10)),
+                          backgroundColor: state.isMovingBackward
+                              ? MaterialStateProperty.all(Colors.purple[800])
+                              : MaterialStateProperty.all(Colors.indigoAccent)),
+                      child: Icon(Icons.keyboard_arrow_down_outlined, size: 70),
+                      onPressed: () {
+                        if (state.isMovingBackward == false) {
+                          BlocProvider.of<MotorControlBloc>(context)
+                              .add(MotorControlEvent.moveBackward());
+                        } else {
+                          BlocProvider.of<MotorControlBloc>(context)
+                              .add(MotorControlEvent.stop());
+                        }
+                      },
                     ),
                   ],
                 ),
                 Padding(
                   padding: EdgeInsets.only(top: 100),
                   child: StreamBuilder<Object>(
-                      stream: ros.statusStream,
+                      stream: state.rosStream,
                       builder: (context, snapshot) {
                         return Center(
                           child: Column(
@@ -166,18 +134,23 @@ class _MotorControlPageState extends State<MotorControlPage> {
                               SizedBox(
                                 width: 150,
                                 child: LiteRollingSwitch(
+                                  onDoubleTap: () {},
+                                  onTap: () {},
+                                  onSwipe: () {},
                                   value: false,
                                   textOn: 'Connected',
                                   textOff: 'Disconnected',
-                                  colorOn: Colors.green[300],
-                                  colorOff: Colors.red[300],
+                                  colorOn: Colors.green,
+                                  colorOff: Colors.red,
                                   iconOn: Icons.lightbulb_outline,
                                   iconOff: Icons.power_settings_new,
                                   onChanged: (bool state) {
                                     if (state == true)
-                                      ros.connect();
+                                      BlocProvider.of<MotorControlBloc>(context)
+                                          .add(MotorControlEvent.connect());
                                     else
-                                      ros.close();
+                                      BlocProvider.of<MotorControlBloc>(context)
+                                          .add(MotorControlEvent.disconnect());
                                   },
                                 ),
                               ),

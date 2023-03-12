@@ -10,6 +10,18 @@ class CameraPage extends StatefulWidget {
 class _CameraPageState extends State<CameraPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+        appBar: AppBar(
+          toolbarHeight: 80,
+          flexibleSpace: Container(
+              decoration: BoxDecoration(
+            gradient: LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: [Colors.purple, Colors.indigoAccent]),
+          )),
+          title: Center(child: Text('Camera View')),
+        ),
+        body: Center());
   }
 }

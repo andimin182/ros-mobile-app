@@ -17,6 +17,7 @@ class RosApp extends StatelessWidget {
     return BlocProvider(
       create: (context) => getIt<MotorControlBloc>(),
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         routes: {
           '/': (context) => HomePage(),
           '/controller': (context) => MotorControlPage(),
