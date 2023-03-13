@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
-import 'package:ros_app/motorCommand/domain/repositories/control_repo.dart';
+import 'package:ros_app/motorCommand/domain/usecases/motor_control.dart';
 
 part 'motor_control_event.dart';
 part 'motor_control_state.dart';
@@ -17,64 +17,79 @@ class MotorControlBloc extends Bloc<MotorControlEvent, MotorControlState> {
     on<MotorControlEvent>((event, emit) async {
       await event.map(
         moveForward: (_) async {
-          if (state.isConnected) {
-            emit(state.copyWith(
-              isMovingForward: true,
-              isMovingBackward: false,
-              isTurningLeft: false,
-              isTurningRight: false,
-              isStop: false,
-            ));
-            await motorCommand.forwardCommand();
-          }
+          final failureOrMove = await motorCommand.moveForward();
+          failureOrMove.fold(
+              (_) => emit(state.copyWith(
+                    showError: true,
+                  )),
+              (_) => emit(state.copyWith(
+                    isMovingForward: true,
+                    isMovingBackward: false,
+                    isTurningLeft: false,
+                    isTurningRight: false,
+                    isStop: false,
+                    showError: false,
+                  )));
         },
         moveBackward: (_) async {
-          if (state.isConnected) {
-            emit(state.copyWith(
-              isMovingForward: false,
-              isMovingBackward: true,
-              isTurningLeft: false,
-              isTurningRight: false,
-              isStop: false,
-            ));
-            await motorCommand.backwardCommand();
-          }
+          final failureOrMove = await motorCommand.moveBackward();
+          failureOrMove.fold(
+              (_) => emit(state.copyWith(
+                    showError: true,
+                  )),
+              (_) => emit(state.copyWith(
+                    isMovingForward: false,
+                    isMovingBackward: true,
+                    isTurningLeft: false,
+                    isTurningRight: false,
+                    isStop: false,
+                    showError: false,
+                  )));
         },
         turnLeft: (_) async {
-          if (state.isConnected) {
-            emit(state.copyWith(
-              isMovingForward: false,
-              isMovingBackward: false,
-              isTurningLeft: true,
-              isTurningRight: false,
-              isStop: false,
-            ));
-            await motorCommand.leftCommand();
-          }
+          final failureOrMove = await motorCommand.turnLeft();
+          failureOrMove.fold(
+              (_) => emit(state.copyWith(
+                    showError: true,
+                  )),
+              (_) => emit(state.copyWith(
+                    isMovingForward: false,
+                    isMovingBackward: false,
+                    isTurningLeft: true,
+                    isTurningRight: false,
+                    isStop: false,
+                    showError: false,
+                  )));
         },
         turnRight: (_) async {
-          if (state.isConnected) {
-            emit(state.copyWith(
-              isMovingForward: false,
-              isMovingBackward: false,
-              isTurningLeft: false,
-              isTurningRight: true,
-              isStop: false,
-            ));
-            await motorCommand.rightCommand();
-          }
+          final failureOrMove = await motorCommand.turnRight();
+          failureOrMove.fold(
+              (_) => emit(state.copyWith(
+                    showError: true,
+                  )),
+              (_) => emit(state.copyWith(
+                    isMovingForward: false,
+                    isMovingBackward: false,
+                    isTurningLeft: false,
+                    isTurningRight: true,
+                    isStop: false,
+                    showError: false,
+                  )));
         },
         stop: (_) async {
-          if (state.isConnected) {
-            emit(state.copyWith(
-              isMovingForward: false,
-              isMovingBackward: false,
-              isTurningLeft: false,
-              isTurningRight: false,
-              isStop: true,
-            ));
-            await motorCommand.stopCommand();
-          }
+          final failureOrMove = await motorCommand.stop();
+          failureOrMove.fold(
+              (_) => emit(state.copyWith(
+                    showError: true,
+                  )),
+              (_) => emit(state.copyWith(
+                    isMovingForward: false,
+                    isMovingBackward: false,
+                    isTurningLeft: false,
+                    isTurningRight: false,
+                    isStop: true,
+                    showError: false,
+                  )));
         },
         connect: (_) async {
           // Connect to ros topic
@@ -85,22 +100,44 @@ class MotorControlBloc extends Bloc<MotorControlEvent, MotorControlState> {
             isTurningRight: false,
             isStop: true,
             isConnected: true,
-            rosStream: motorCommand.ros.statusStream,
+            rosStream: motorCommand.motorCommandRepo.ros.statusStream,
           ));
-          motorCommand.connectToRos();
+          final failureOrConnect = motorCommand.connectToRos();
+          failureOrConnect.fold(
+            (_) => emit(state.copyWith(
+              showError: true,
+            )),
+            (_) => emit(state.copyWith(
+              isMovingForward: false,
+              isMovingBackward: false,
+              isTurningLeft: false,
+              isTurningRight: false,
+              isStop: true,
+              isConnected: false,
+              showError: false,
+              rosStream: Stream.empty(),
+            )),
+          );
         },
         disconnect: (_) {
           // Disconnect from ros topic
-          emit(state.copyWith(
-            isMovingForward: false,
-            isMovingBackward: false,
-            isTurningLeft: false,
-            isTurningRight: false,
-            isStop: true,
-            isConnected: false,
-            rosStream: Stream.empty(),
-          ));
-          motorCommand.disconnectFromRos();
+
+          final failureOrDisconnect = motorCommand.disconnectFromRos();
+          failureOrDisconnect.fold(
+            (_) => emit(state.copyWith(
+              showError: true,
+            )),
+            (_) => emit(state.copyWith(
+              isMovingForward: false,
+              isMovingBackward: false,
+              isTurningLeft: false,
+              isTurningRight: false,
+              isStop: true,
+              isConnected: false,
+              showError: false,
+              rosStream: Stream.empty(),
+            )),
+          );
         },
       );
     });

@@ -1031,6 +1031,7 @@ mixin _$MotorControlState {
   bool get isTurningRight => throw _privateConstructorUsedError;
   bool get isStop => throw _privateConstructorUsedError;
   bool get isConnected => throw _privateConstructorUsedError;
+  bool get showError => throw _privateConstructorUsedError;
   Stream<Object> get rosStream => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -1051,6 +1052,7 @@ abstract class $MotorControlStateCopyWith<$Res> {
       bool isTurningRight,
       bool isStop,
       bool isConnected,
+      bool showError,
       Stream<Object> rosStream});
 }
 
@@ -1073,6 +1075,7 @@ class _$MotorControlStateCopyWithImpl<$Res, $Val extends MotorControlState>
     Object? isTurningRight = null,
     Object? isStop = null,
     Object? isConnected = null,
+    Object? showError = null,
     Object? rosStream = null,
   }) {
     return _then(_value.copyWith(
@@ -1100,6 +1103,10 @@ class _$MotorControlStateCopyWithImpl<$Res, $Val extends MotorControlState>
           ? _value.isConnected
           : isConnected // ignore: cast_nullable_to_non_nullable
               as bool,
+      showError: null == showError
+          ? _value.showError
+          : showError // ignore: cast_nullable_to_non_nullable
+              as bool,
       rosStream: null == rosStream
           ? _value.rosStream
           : rosStream // ignore: cast_nullable_to_non_nullable
@@ -1123,6 +1130,7 @@ abstract class _$$_MotorControlStateCopyWith<$Res>
       bool isTurningRight,
       bool isStop,
       bool isConnected,
+      bool showError,
       Stream<Object> rosStream});
 }
 
@@ -1143,6 +1151,7 @@ class __$$_MotorControlStateCopyWithImpl<$Res>
     Object? isTurningRight = null,
     Object? isStop = null,
     Object? isConnected = null,
+    Object? showError = null,
     Object? rosStream = null,
   }) {
     return _then(_$_MotorControlState(
@@ -1170,6 +1179,10 @@ class __$$_MotorControlStateCopyWithImpl<$Res>
           ? _value.isConnected
           : isConnected // ignore: cast_nullable_to_non_nullable
               as bool,
+      showError: null == showError
+          ? _value.showError
+          : showError // ignore: cast_nullable_to_non_nullable
+              as bool,
       rosStream: null == rosStream
           ? _value.rosStream
           : rosStream // ignore: cast_nullable_to_non_nullable
@@ -1188,6 +1201,7 @@ class _$_MotorControlState implements _MotorControlState {
       required this.isTurningRight,
       required this.isStop,
       required this.isConnected,
+      required this.showError,
       required this.rosStream});
 
   @override
@@ -1203,11 +1217,13 @@ class _$_MotorControlState implements _MotorControlState {
   @override
   final bool isConnected;
   @override
+  final bool showError;
+  @override
   final Stream<Object> rosStream;
 
   @override
   String toString() {
-    return 'MotorControlState(isMovingForward: $isMovingForward, isMovingBackward: $isMovingBackward, isTurningLeft: $isTurningLeft, isTurningRight: $isTurningRight, isStop: $isStop, isConnected: $isConnected, rosStream: $rosStream)';
+    return 'MotorControlState(isMovingForward: $isMovingForward, isMovingBackward: $isMovingBackward, isTurningLeft: $isTurningLeft, isTurningRight: $isTurningRight, isStop: $isStop, isConnected: $isConnected, showError: $showError, rosStream: $rosStream)';
   }
 
   @override
@@ -1226,6 +1242,8 @@ class _$_MotorControlState implements _MotorControlState {
             (identical(other.isStop, isStop) || other.isStop == isStop) &&
             (identical(other.isConnected, isConnected) ||
                 other.isConnected == isConnected) &&
+            (identical(other.showError, showError) ||
+                other.showError == showError) &&
             (identical(other.rosStream, rosStream) ||
                 other.rosStream == rosStream));
   }
@@ -1239,6 +1257,7 @@ class _$_MotorControlState implements _MotorControlState {
       isTurningRight,
       isStop,
       isConnected,
+      showError,
       rosStream);
 
   @JsonKey(ignore: true)
@@ -1257,6 +1276,7 @@ abstract class _MotorControlState implements MotorControlState {
       required final bool isTurningRight,
       required final bool isStop,
       required final bool isConnected,
+      required final bool showError,
       required final Stream<Object> rosStream}) = _$_MotorControlState;
 
   @override
@@ -1271,6 +1291,8 @@ abstract class _MotorControlState implements MotorControlState {
   bool get isStop;
   @override
   bool get isConnected;
+  @override
+  bool get showError;
   @override
   Stream<Object> get rosStream;
   @override

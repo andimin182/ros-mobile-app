@@ -9,6 +9,7 @@ class MotorControlState with _$MotorControlState {
     required bool isTurningRight,
     required bool isStop,
     required bool isConnected,
+    required bool showError,
     required Stream<Object> rosStream,
   }) = _MotorControlState;
 
@@ -21,6 +22,7 @@ class MotorControlState with _$MotorControlState {
       isStop: true,
       isConnected: false,
       rosStream: Stream.empty(),
+      showError: false,
     );
   }
 }

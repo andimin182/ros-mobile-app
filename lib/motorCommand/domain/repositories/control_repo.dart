@@ -5,7 +5,7 @@ import 'package:ros_app/core/user_exceptions.dart';
 import 'package:roslibdart/roslibdart.dart';
 
 @injectable
-class MotorCommand {
+class MotorCommandRepo {
   final forward = {'command': 'Forward'};
   final backward = {'command': 'Back'};
   final left = {'command': 'Turn_left'};
@@ -25,7 +25,7 @@ class MotorCommand {
     try {
       ros.connect();
     } catch (_) {
-      throw RosConnectionException('Error: Cannot connection to Ros');
+      throw RosConnectionException('Error: Cannot connect to Ros');
     }
   }
 
