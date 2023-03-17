@@ -3,19 +3,19 @@ import 'package:injectable/injectable.dart';
 import 'package:ros_app/core/failures.dart';
 import 'package:dartz/dartz.dart';
 import 'package:ros_app/core/user_exceptions.dart';
-import 'package:ros_app/motorCommand/domain/repositories/control_repo.dart';
+import 'package:ros_app/motorCommand/domain/repositories/motor_node_pub_repo.dart';
 
 @injectable
 class MotorCommand {
-  final MotorCommandRepo motorCommandRepo;
+  final MotorNodePub motorNodePub;
 
   MotorCommand({
-    required this.motorCommandRepo,
+    required this.motorNodePub,
   });
 
   Future<Either<Failure, Unit>> moveForward() async {
     try {
-      await motorCommandRepo.forwardCommand();
+      await motorNodePub.forwardCommand();
       return Right(unit);
     } on RosConnectionException catch (e) {
       log(e.message);
@@ -25,7 +25,7 @@ class MotorCommand {
 
   Future<Either<Failure, Unit>> moveBackward() async {
     try {
-      await motorCommandRepo.backwardCommand();
+      await motorNodePub.backwardCommand();
       return Right(unit);
     } on RosConnectionException catch (e) {
       log(e.message);
@@ -35,7 +35,7 @@ class MotorCommand {
 
   Future<Either<Failure, Unit>> turnLeft() async {
     try {
-      await motorCommandRepo.leftCommand();
+      await motorNodePub.leftCommand();
       return Right(unit);
     } on RosConnectionException catch (e) {
       log(e.message);
@@ -45,7 +45,7 @@ class MotorCommand {
 
   Future<Either<Failure, Unit>> turnRight() async {
     try {
-      await motorCommandRepo.rightCommand();
+      await motorNodePub.rightCommand();
       return Right(unit);
     } on RosConnectionException catch (e) {
       log(e.message);
@@ -55,7 +55,7 @@ class MotorCommand {
 
   Future<Either<Failure, Unit>> stop() async {
     try {
-      await motorCommandRepo.stopCommand();
+      await motorNodePub.stopCommand();
       return Right(unit);
     } on RosConnectionException catch (e) {
       log(e.message);
@@ -65,7 +65,7 @@ class MotorCommand {
 
   Either<Failure, Unit> connectToRos() {
     try {
-      motorCommandRepo.connectToRos();
+      motorNodePub.connectToRos();
       return Right(unit);
     } on RosConnectionException catch (e) {
       log(e.message);
@@ -75,7 +75,7 @@ class MotorCommand {
 
   Either<Failure, Unit> disconnectFromRos() {
     try {
-      motorCommandRepo.disconnectFromRos();
+      motorNodePub.disconnectFromRos();
       return Right(unit);
     } on RosConnectionException catch (e) {
       log(e.message);

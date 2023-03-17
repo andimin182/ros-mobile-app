@@ -4,6 +4,6 @@ class MotorTopic {
 }
 
 class CameraTopic {
-  static const String topicName = "";
-  static const String msgType = "";
+  static const String topicName = "/imageColorDetection";
+  static const String msgType = "sensor_msgs/msg/CompressedImage";
 }

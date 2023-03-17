@@ -21,6 +21,7 @@ mixin _$Failure {
     TResult Function() $default, {
     required TResult Function() rosConnectionFailure,
     required TResult Function() motorCommandFailure,
+    required TResult Function() cameraSubscriberFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -28,6 +29,7 @@ mixin _$Failure {
     TResult? Function()? $default, {
     TResult? Function()? rosConnectionFailure,
     TResult? Function()? motorCommandFailure,
+    TResult? Function()? cameraSubscriberFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -35,6 +37,7 @@ mixin _$Failure {
     TResult Function()? $default, {
     TResult Function()? rosConnectionFailure,
     TResult Function()? motorCommandFailure,
+    TResult Function()? cameraSubscriberFailure,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -43,6 +46,8 @@ mixin _$Failure {
     TResult Function(_Failure value) $default, {
     required TResult Function(RosConnectionFailure value) rosConnectionFailure,
     required TResult Function(MotorCommandFailure value) motorCommandFailure,
+    required TResult Function(CameraSubscriberFailure value)
+        cameraSubscriberFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +55,7 @@ mixin _$Failure {
     TResult? Function(_Failure value)? $default, {
     TResult? Function(RosConnectionFailure value)? rosConnectionFailure,
     TResult? Function(MotorCommandFailure value)? motorCommandFailure,
+    TResult? Function(CameraSubscriberFailure value)? cameraSubscriberFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,6 +63,7 @@ mixin _$Failure {
     TResult Function(_Failure value)? $default, {
     TResult Function(RosConnectionFailure value)? rosConnectionFailure,
     TResult Function(MotorCommandFailure value)? motorCommandFailure,
+    TResult Function(CameraSubscriberFailure value)? cameraSubscriberFailure,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -119,6 +126,7 @@ class _$_Failure implements _Failure {
     TResult Function() $default, {
     required TResult Function() rosConnectionFailure,
     required TResult Function() motorCommandFailure,
+    required TResult Function() cameraSubscriberFailure,
   }) {
     return $default();
   }
@@ -129,6 +137,7 @@ class _$_Failure implements _Failure {
     TResult? Function()? $default, {
     TResult? Function()? rosConnectionFailure,
     TResult? Function()? motorCommandFailure,
+    TResult? Function()? cameraSubscriberFailure,
   }) {
     return $default?.call();
   }
@@ -139,6 +148,7 @@ class _$_Failure implements _Failure {
     TResult Function()? $default, {
     TResult Function()? rosConnectionFailure,
     TResult Function()? motorCommandFailure,
+    TResult Function()? cameraSubscriberFailure,
     required TResult orElse(),
   }) {
     if ($default != null) {
@@ -153,6 +163,8 @@ class _$_Failure implements _Failure {
     TResult Function(_Failure value) $default, {
     required TResult Function(RosConnectionFailure value) rosConnectionFailure,
     required TResult Function(MotorCommandFailure value) motorCommandFailure,
+    required TResult Function(CameraSubscriberFailure value)
+        cameraSubscriberFailure,
   }) {
     return $default(this);
   }
@@ -163,6 +175,7 @@ class _$_Failure implements _Failure {
     TResult? Function(_Failure value)? $default, {
     TResult? Function(RosConnectionFailure value)? rosConnectionFailure,
     TResult? Function(MotorCommandFailure value)? motorCommandFailure,
+    TResult? Function(CameraSubscriberFailure value)? cameraSubscriberFailure,
   }) {
     return $default?.call(this);
   }
@@ -173,6 +186,7 @@ class _$_Failure implements _Failure {
     TResult Function(_Failure value)? $default, {
     TResult Function(RosConnectionFailure value)? rosConnectionFailure,
     TResult Function(MotorCommandFailure value)? motorCommandFailure,
+    TResult Function(CameraSubscriberFailure value)? cameraSubscriberFailure,
     required TResult orElse(),
   }) {
     if ($default != null) {
@@ -227,6 +241,7 @@ class _$RosConnectionFailure implements RosConnectionFailure {
     TResult Function() $default, {
     required TResult Function() rosConnectionFailure,
     required TResult Function() motorCommandFailure,
+    required TResult Function() cameraSubscriberFailure,
   }) {
     return rosConnectionFailure();
   }
@@ -237,6 +252,7 @@ class _$RosConnectionFailure implements RosConnectionFailure {
     TResult? Function()? $default, {
     TResult? Function()? rosConnectionFailure,
     TResult? Function()? motorCommandFailure,
+    TResult? Function()? cameraSubscriberFailure,
   }) {
     return rosConnectionFailure?.call();
   }
@@ -247,6 +263,7 @@ class _$RosConnectionFailure implements RosConnectionFailure {
     TResult Function()? $default, {
     TResult Function()? rosConnectionFailure,
     TResult Function()? motorCommandFailure,
+    TResult Function()? cameraSubscriberFailure,
     required TResult orElse(),
   }) {
     if (rosConnectionFailure != null) {
@@ -261,6 +278,8 @@ class _$RosConnectionFailure implements RosConnectionFailure {
     TResult Function(_Failure value) $default, {
     required TResult Function(RosConnectionFailure value) rosConnectionFailure,
     required TResult Function(MotorCommandFailure value) motorCommandFailure,
+    required TResult Function(CameraSubscriberFailure value)
+        cameraSubscriberFailure,
   }) {
     return rosConnectionFailure(this);
   }
@@ -271,6 +290,7 @@ class _$RosConnectionFailure implements RosConnectionFailure {
     TResult? Function(_Failure value)? $default, {
     TResult? Function(RosConnectionFailure value)? rosConnectionFailure,
     TResult? Function(MotorCommandFailure value)? motorCommandFailure,
+    TResult? Function(CameraSubscriberFailure value)? cameraSubscriberFailure,
   }) {
     return rosConnectionFailure?.call(this);
   }
@@ -281,6 +301,7 @@ class _$RosConnectionFailure implements RosConnectionFailure {
     TResult Function(_Failure value)? $default, {
     TResult Function(RosConnectionFailure value)? rosConnectionFailure,
     TResult Function(MotorCommandFailure value)? motorCommandFailure,
+    TResult Function(CameraSubscriberFailure value)? cameraSubscriberFailure,
     required TResult orElse(),
   }) {
     if (rosConnectionFailure != null) {
@@ -335,6 +356,7 @@ class _$MotorCommandFailure implements MotorCommandFailure {
     TResult Function() $default, {
     required TResult Function() rosConnectionFailure,
     required TResult Function() motorCommandFailure,
+    required TResult Function() cameraSubscriberFailure,
   }) {
     return motorCommandFailure();
   }
@@ -345,6 +367,7 @@ class _$MotorCommandFailure implements MotorCommandFailure {
     TResult? Function()? $default, {
     TResult? Function()? rosConnectionFailure,
     TResult? Function()? motorCommandFailure,
+    TResult? Function()? cameraSubscriberFailure,
   }) {
     return motorCommandFailure?.call();
   }
@@ -355,6 +378,7 @@ class _$MotorCommandFailure implements MotorCommandFailure {
     TResult Function()? $default, {
     TResult Function()? rosConnectionFailure,
     TResult Function()? motorCommandFailure,
+    TResult Function()? cameraSubscriberFailure,
     required TResult orElse(),
   }) {
     if (motorCommandFailure != null) {
@@ -369,6 +393,8 @@ class _$MotorCommandFailure implements MotorCommandFailure {
     TResult Function(_Failure value) $default, {
     required TResult Function(RosConnectionFailure value) rosConnectionFailure,
     required TResult Function(MotorCommandFailure value) motorCommandFailure,
+    required TResult Function(CameraSubscriberFailure value)
+        cameraSubscriberFailure,
   }) {
     return motorCommandFailure(this);
   }
@@ -379,6 +405,7 @@ class _$MotorCommandFailure implements MotorCommandFailure {
     TResult? Function(_Failure value)? $default, {
     TResult? Function(RosConnectionFailure value)? rosConnectionFailure,
     TResult? Function(MotorCommandFailure value)? motorCommandFailure,
+    TResult? Function(CameraSubscriberFailure value)? cameraSubscriberFailure,
   }) {
     return motorCommandFailure?.call(this);
   }
@@ -389,6 +416,7 @@ class _$MotorCommandFailure implements MotorCommandFailure {
     TResult Function(_Failure value)? $default, {
     TResult Function(RosConnectionFailure value)? rosConnectionFailure,
     TResult Function(MotorCommandFailure value)? motorCommandFailure,
+    TResult Function(CameraSubscriberFailure value)? cameraSubscriberFailure,
     required TResult orElse(),
   }) {
     if (motorCommandFailure != null) {
@@ -400,4 +428,120 @@ class _$MotorCommandFailure implements MotorCommandFailure {
 
 abstract class MotorCommandFailure implements Failure {
   const factory MotorCommandFailure() = _$MotorCommandFailure;
+}
+
+/// @nodoc
+abstract class _$$CameraSubscriberFailureCopyWith<$Res> {
+  factory _$$CameraSubscriberFailureCopyWith(_$CameraSubscriberFailure value,
+          $Res Function(_$CameraSubscriberFailure) then) =
+      __$$CameraSubscriberFailureCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$CameraSubscriberFailureCopyWithImpl<$Res>
+    extends _$FailureCopyWithImpl<$Res, _$CameraSubscriberFailure>
+    implements _$$CameraSubscriberFailureCopyWith<$Res> {
+  __$$CameraSubscriberFailureCopyWithImpl(_$CameraSubscriberFailure _value,
+      $Res Function(_$CameraSubscriberFailure) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$CameraSubscriberFailure implements CameraSubscriberFailure {
+  const _$CameraSubscriberFailure();
+
+  @override
+  String toString() {
+    return 'Failure.cameraSubscriberFailure()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$CameraSubscriberFailure);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function() $default, {
+    required TResult Function() rosConnectionFailure,
+    required TResult Function() motorCommandFailure,
+    required TResult Function() cameraSubscriberFailure,
+  }) {
+    return cameraSubscriberFailure();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult? Function()? $default, {
+    TResult? Function()? rosConnectionFailure,
+    TResult? Function()? motorCommandFailure,
+    TResult? Function()? cameraSubscriberFailure,
+  }) {
+    return cameraSubscriberFailure?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function()? $default, {
+    TResult Function()? rosConnectionFailure,
+    TResult Function()? motorCommandFailure,
+    TResult Function()? cameraSubscriberFailure,
+    required TResult orElse(),
+  }) {
+    if (cameraSubscriberFailure != null) {
+      return cameraSubscriberFailure();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(_Failure value) $default, {
+    required TResult Function(RosConnectionFailure value) rosConnectionFailure,
+    required TResult Function(MotorCommandFailure value) motorCommandFailure,
+    required TResult Function(CameraSubscriberFailure value)
+        cameraSubscriberFailure,
+  }) {
+    return cameraSubscriberFailure(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult? Function(_Failure value)? $default, {
+    TResult? Function(RosConnectionFailure value)? rosConnectionFailure,
+    TResult? Function(MotorCommandFailure value)? motorCommandFailure,
+    TResult? Function(CameraSubscriberFailure value)? cameraSubscriberFailure,
+  }) {
+    return cameraSubscriberFailure?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_Failure value)? $default, {
+    TResult Function(RosConnectionFailure value)? rosConnectionFailure,
+    TResult Function(MotorCommandFailure value)? motorCommandFailure,
+    TResult Function(CameraSubscriberFailure value)? cameraSubscriberFailure,
+    required TResult orElse(),
+  }) {
+    if (cameraSubscriberFailure != null) {
+      return cameraSubscriberFailure(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class CameraSubscriberFailure implements Failure {
+  const factory CameraSubscriberFailure() = _$CameraSubscriberFailure;
 }

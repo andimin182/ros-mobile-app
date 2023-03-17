@@ -5,7 +5,7 @@ import 'package:ros_app/core/user_exceptions.dart';
 import 'package:roslibdart/roslibdart.dart';
 
 @injectable
-class MotorCommandRepo {
+class MotorNodePub {
   final forward = {'command': 'Forward'};
   final backward = {'command': 'Back'};
   final left = {'command': 'Turn_left'};

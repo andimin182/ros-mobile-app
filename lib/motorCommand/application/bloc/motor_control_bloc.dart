@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
-import 'package:ros_app/motorCommand/domain/usecases/motor_control.dart';
+import 'package:ros_app/motorCommand/domain/usecases/motor_node_pub.dart';
 
 part 'motor_control_event.dart';
 part 'motor_control_state.dart';
@@ -100,7 +100,7 @@ class MotorControlBloc extends Bloc<MotorControlEvent, MotorControlState> {
             isTurningRight: false,
             isStop: true,
             isConnected: true,
-            rosStream: motorCommand.motorCommandRepo.ros.statusStream,
+            rosStream: motorCommand.motorNodePub.ros.statusStream,
           ));
           final failureOrConnect = motorCommand.connectToRos();
           failureOrConnect.fold(

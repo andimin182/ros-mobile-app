@@ -6,6 +6,8 @@ import 'package:ros_app/presentation/screens/camera_page.dart';
 import 'package:ros_app/presentation/screens/homepage.dart';
 import 'package:ros_app/presentation/screens/motor_controller_page.dart';
 
+import 'cameraVisualization/application/bloc/camera_node_bloc.dart';
+
 void main() {
   configureDependencies();
   runApp(RosApp());
@@ -14,8 +16,15 @@ void main() {
 class RosApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => getIt<MotorControlBloc>(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => getIt<MotorControlBloc>(),
+        ),
+        BlocProvider(
+          create: (context) => getIt<CameraNodeBloc>(),
+        ),
+      ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         routes: {

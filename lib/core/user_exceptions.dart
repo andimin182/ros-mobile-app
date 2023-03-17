@@ -3,3 +3,9 @@ class RosConnectionException implements Exception {
 
   RosConnectionException(this.message);
 }
+
+class RosCameraTopicException implements Exception {
+  final String message;
+
+  RosCameraTopicException(this.message);
+}
