@@ -1,3 +1,4 @@
+import 'dart:convert' as conv;
 import 'dart:developer';
 import 'dart:typed_data';
 import 'package:bloc/bloc.dart';
@@ -29,15 +30,16 @@ class CameraNodeBloc extends Bloc<CameraNodeEvent, CameraNodeState> {
                 log('before');
                 await cameraVisualization.subscribeTo((message) async {
                   log('callback');
-                  log(message['format']);
-                  // final Uint8List imageData = message['data'];
-                  // final Completer<Image> completer = Completer();
-                  // final Codec codec = await instantiateImageCodec(imageData);
-                  // final FrameInfo frameInfo = await codec.getNextFrame();
-                  // Image imageFromTopic = frameInfo.image;
-                  // completer.complete(imageFromTopic);
-                  // add(CameraNodeEvent.retrieveImageFromRos(
-                  //     newImage: imageFromTopic));
+                  final String stringImage = message['data'];
+                  final Uint8List imageData =
+                      Uint8List.fromList(conv.utf8.encode(stringImage));
+                  final Completer<Image> completer = Completer();
+                  final Codec codec = await instantiateImageCodec(imageData);
+                  final FrameInfo frameInfo = await codec.getNextFrame();
+                  Image imageFromTopic = frameInfo.image;
+                  completer.complete(imageFromTopic);
+                  add(CameraNodeEvent.retrieveImageFromRos(
+                      newImage: imageFromTopic));
                 });
               } catch (e) {
                 print(e);

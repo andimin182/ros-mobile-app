@@ -9,7 +9,7 @@ typedef Callback = Future<void> Function(Map<String, dynamic> args);
 
 @injectable
 class CameraNodeSub {
-  final Ros ros = Ros(url: Constants.raspiCamUrl);
+  final Ros ros = Ros(url: Constants.unixUrl);
 
   late final Topic subscriber = Topic(
       ros: ros,
