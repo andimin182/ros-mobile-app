@@ -20,21 +20,21 @@ mixin _$CameraNodeEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() connectToRos,
     required TResult Function() disconnectFromRos,
-    required TResult Function(Image newImage) retrieveImageFromRos,
+    required TResult Function(Image receivedImage) retrieveImageFromRos,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? connectToRos,
     TResult? Function()? disconnectFromRos,
-    TResult? Function(Image newImage)? retrieveImageFromRos,
+    TResult? Function(Image receivedImage)? retrieveImageFromRos,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? connectToRos,
     TResult Function()? disconnectFromRos,
-    TResult Function(Image newImage)? retrieveImageFromRos,
+    TResult Function(Image receivedImage)? retrieveImageFromRos,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -120,7 +120,7 @@ class _$ConnectToRos implements ConnectToRos {
   TResult when<TResult extends Object?>({
     required TResult Function() connectToRos,
     required TResult Function() disconnectFromRos,
-    required TResult Function(Image newImage) retrieveImageFromRos,
+    required TResult Function(Image receivedImage) retrieveImageFromRos,
   }) {
     return connectToRos();
   }
@@ -130,7 +130,7 @@ class _$ConnectToRos implements ConnectToRos {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? connectToRos,
     TResult? Function()? disconnectFromRos,
-    TResult? Function(Image newImage)? retrieveImageFromRos,
+    TResult? Function(Image receivedImage)? retrieveImageFromRos,
   }) {
     return connectToRos?.call();
   }
@@ -140,7 +140,7 @@ class _$ConnectToRos implements ConnectToRos {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? connectToRos,
     TResult Function()? disconnectFromRos,
-    TResult Function(Image newImage)? retrieveImageFromRos,
+    TResult Function(Image receivedImage)? retrieveImageFromRos,
     required TResult orElse(),
   }) {
     if (connectToRos != null) {
@@ -228,7 +228,7 @@ class _$DisconnectFromRos implements DisconnectFromRos {
   TResult when<TResult extends Object?>({
     required TResult Function() connectToRos,
     required TResult Function() disconnectFromRos,
-    required TResult Function(Image newImage) retrieveImageFromRos,
+    required TResult Function(Image receivedImage) retrieveImageFromRos,
   }) {
     return disconnectFromRos();
   }
@@ -238,7 +238,7 @@ class _$DisconnectFromRos implements DisconnectFromRos {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? connectToRos,
     TResult? Function()? disconnectFromRos,
-    TResult? Function(Image newImage)? retrieveImageFromRos,
+    TResult? Function(Image receivedImage)? retrieveImageFromRos,
   }) {
     return disconnectFromRos?.call();
   }
@@ -248,7 +248,7 @@ class _$DisconnectFromRos implements DisconnectFromRos {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? connectToRos,
     TResult Function()? disconnectFromRos,
-    TResult Function(Image newImage)? retrieveImageFromRos,
+    TResult Function(Image receivedImage)? retrieveImageFromRos,
     required TResult orElse(),
   }) {
     if (disconnectFromRos != null) {
@@ -302,7 +302,7 @@ abstract class _$$RetrieveImageFromRosCopyWith<$Res> {
           $Res Function(_$RetrieveImageFromRos) then) =
       __$$RetrieveImageFromRosCopyWithImpl<$Res>;
   @useResult
-  $Res call({Image newImage});
+  $Res call({Image receivedImage});
 }
 
 /// @nodoc
@@ -316,12 +316,12 @@ class __$$RetrieveImageFromRosCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? newImage = freezed,
+    Object? receivedImage = null,
   }) {
     return _then(_$RetrieveImageFromRos(
-      newImage: freezed == newImage
-          ? _value.newImage
-          : newImage // ignore: cast_nullable_to_non_nullable
+      receivedImage: null == receivedImage
+          ? _value.receivedImage
+          : receivedImage // ignore: cast_nullable_to_non_nullable
               as Image,
     ));
   }
@@ -330,14 +330,14 @@ class __$$RetrieveImageFromRosCopyWithImpl<$Res>
 /// @nodoc
 
 class _$RetrieveImageFromRos implements RetrieveImageFromRos {
-  const _$RetrieveImageFromRos({required this.newImage});
+  const _$RetrieveImageFromRos({required this.receivedImage});
 
   @override
-  final Image newImage;
+  final Image receivedImage;
 
   @override
   String toString() {
-    return 'CameraNodeEvent.retrieveImageFromRos(newImage: $newImage)';
+    return 'CameraNodeEvent.retrieveImageFromRos(receivedImage: $receivedImage)';
   }
 
   @override
@@ -345,12 +345,12 @@ class _$RetrieveImageFromRos implements RetrieveImageFromRos {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$RetrieveImageFromRos &&
-            const DeepCollectionEquality().equals(other.newImage, newImage));
+            (identical(other.receivedImage, receivedImage) ||
+                other.receivedImage == receivedImage));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(newImage));
+  int get hashCode => Object.hash(runtimeType, receivedImage);
 
   @JsonKey(ignore: true)
   @override
@@ -364,9 +364,9 @@ class _$RetrieveImageFromRos implements RetrieveImageFromRos {
   TResult when<TResult extends Object?>({
     required TResult Function() connectToRos,
     required TResult Function() disconnectFromRos,
-    required TResult Function(Image newImage) retrieveImageFromRos,
+    required TResult Function(Image receivedImage) retrieveImageFromRos,
   }) {
-    return retrieveImageFromRos(newImage);
+    return retrieveImageFromRos(receivedImage);
   }
 
   @override
@@ -374,9 +374,9 @@ class _$RetrieveImageFromRos implements RetrieveImageFromRos {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? connectToRos,
     TResult? Function()? disconnectFromRos,
-    TResult? Function(Image newImage)? retrieveImageFromRos,
+    TResult? Function(Image receivedImage)? retrieveImageFromRos,
   }) {
-    return retrieveImageFromRos?.call(newImage);
+    return retrieveImageFromRos?.call(receivedImage);
   }
 
   @override
@@ -384,11 +384,11 @@ class _$RetrieveImageFromRos implements RetrieveImageFromRos {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? connectToRos,
     TResult Function()? disconnectFromRos,
-    TResult Function(Image newImage)? retrieveImageFromRos,
+    TResult Function(Image receivedImage)? retrieveImageFromRos,
     required TResult orElse(),
   }) {
     if (retrieveImageFromRos != null) {
-      return retrieveImageFromRos(newImage);
+      return retrieveImageFromRos(receivedImage);
     }
     return orElse();
   }
@@ -429,10 +429,10 @@ class _$RetrieveImageFromRos implements RetrieveImageFromRos {
 }
 
 abstract class RetrieveImageFromRos implements CameraNodeEvent {
-  const factory RetrieveImageFromRos({required final Image newImage}) =
+  const factory RetrieveImageFromRos({required final Image receivedImage}) =
       _$RetrieveImageFromRos;
 
-  Image get newImage;
+  Image get receivedImage;
   @JsonKey(ignore: true)
   _$$RetrieveImageFromRosCopyWith<_$RetrieveImageFromRos> get copyWith =>
       throw _privateConstructorUsedError;
@@ -563,13 +563,13 @@ class _$_CameraNodeState implements _CameraNodeState {
             (identical(other.isConnected, isConnected) ||
                 other.isConnected == isConnected) &&
             (identical(other.isError, isError) || other.isError == isError) &&
-            const DeepCollectionEquality()
-                .equals(other.imageState, imageState));
+            (identical(other.imageState, imageState) ||
+                other.imageState == imageState));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, isConnected, isError,
-      const DeepCollectionEquality().hash(imageState));
+  int get hashCode =>
+      Object.hash(runtimeType, isConnected, isError, imageState);
 
   @JsonKey(ignore: true)
   @override

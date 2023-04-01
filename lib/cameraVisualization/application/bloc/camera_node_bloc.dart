@@ -1,12 +1,11 @@
-import 'dart:convert' as conv;
+import 'dart:convert';
 import 'dart:developer';
 import 'dart:typed_data';
 import 'package:bloc/bloc.dart';
+import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:ros_app/cameraVisualization/domain/usecases/camera_visualization.dart';
-import 'dart:ui';
-import 'dart:async';
 
 part 'camera_node_event.dart';
 part 'camera_node_state.dart';
@@ -30,16 +29,21 @@ class CameraNodeBloc extends Bloc<CameraNodeEvent, CameraNodeState> {
                 log('before');
                 await cameraVisualization.subscribeTo((message) async {
                   log('callback');
-                  final String stringImage = message['data'];
-                  final Uint8List imageData =
-                      Uint8List.fromList(conv.utf8.encode(stringImage));
-                  final Completer<Image> completer = Completer();
-                  final Codec codec = await instantiateImageCodec(imageData);
-                  final FrameInfo frameInfo = await codec.getNextFrame();
-                  Image imageFromTopic = frameInfo.image;
-                  completer.complete(imageFromTopic);
-                  add(CameraNodeEvent.retrieveImageFromRos(
-                      newImage: imageFromTopic));
+
+                  if (message.containsKey('data') && message['data'] != null) {
+                    final String stringImage = message['data'];
+                    // Decode the base64 encoded image data
+                    final Uint8List bytesData = base64.decode(stringImage);
+
+                    final Image receivedImage = Image.memory(
+                      bytesData,
+                      width: 400,
+                      height: 560,
+                    );
+
+                    add(CameraNodeEvent.retrieveImageFromRos(
+                        receivedImage: receivedImage));
+                  }
                 });
               } catch (e) {
                 print(e);
@@ -62,7 +66,7 @@ class CameraNodeBloc extends Bloc<CameraNodeEvent, CameraNodeState> {
           emit(state.copyWith(
             isConnected: true,
             isError: false,
-            imageState: e.newImage,
+            imageState: e.receivedImage,
           ));
         },
       );

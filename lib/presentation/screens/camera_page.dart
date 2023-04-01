@@ -1,10 +1,8 @@
 import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lite_rolling_switch/lite_rolling_switch.dart';
 import 'package:ros_app/cameraVisualization/application/bloc/camera_node_bloc.dart';
-import 'package:ros_app/presentation/widgets/image_painter.dart';
 
 class CameraPage extends StatefulWidget {
   const CameraPage({Key? key}) : super(key: key);
@@ -35,12 +33,8 @@ class _CameraPageState extends State<CameraPage> {
                 Container(
                   height: 550,
                   child: state.isConnected
-                      ? CustomPaint(
-                          size: Size(state.imageState!.width.toDouble(),
-                              state.imageState!.height.toDouble()),
-                          painter: ImagePainter(image: state.imageState!),
-                        )
-                      : Center(child: Text('${state.isConnected}')),
+                      ? state.imageState
+                      : Center(child: Text('No image')),
                 ),
                 SizedBox(
                   height: 50,
