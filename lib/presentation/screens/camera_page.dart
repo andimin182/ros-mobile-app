@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lite_rolling_switch/lite_rolling_switch.dart';
@@ -34,7 +33,7 @@ class _CameraPageState extends State<CameraPage> {
                   height: 550,
                   child: state.isConnected
                       ? state.imageState
-                      : Center(child: Text('No image')),
+                      : Center(child: Text('Connect to Ros...')),
                 ),
                 SizedBox(
                   height: 50,
@@ -55,11 +54,9 @@ class _CameraPageState extends State<CameraPage> {
                       iconOff: Icons.power_settings_new,
                       onChanged: (bool state) {
                         if (state == true) {
-                          log(state.toString());
                           BlocProvider.of<CameraNodeBloc>(context)
                               .add(CameraNodeEvent.connectToRos());
                         } else {
-                          log(state.toString());
                           BlocProvider.of<CameraNodeBloc>(context)
                               .add(CameraNodeEvent.disconnectFromRos());
                         }

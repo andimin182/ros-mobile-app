@@ -545,3 +545,267 @@ class _$CameraSubscriberFailure implements CameraSubscriberFailure {
 abstract class CameraSubscriberFailure implements Failure {
   const factory CameraSubscriberFailure() = _$CameraSubscriberFailure;
 }
+
+/// @nodoc
+mixin _$ImageFailure {
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function() $default, {
+    required TResult Function() rosInvalidImage,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult? Function()? $default, {
+    TResult? Function()? rosInvalidImage,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function()? $default, {
+    TResult Function()? rosInvalidImage,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(_ImageFailure value) $default, {
+    required TResult Function(RosInvalidImage value) rosInvalidImage,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult? Function(_ImageFailure value)? $default, {
+    TResult? Function(RosInvalidImage value)? rosInvalidImage,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_ImageFailure value)? $default, {
+    TResult Function(RosInvalidImage value)? rosInvalidImage,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $ImageFailureCopyWith<$Res> {
+  factory $ImageFailureCopyWith(
+          ImageFailure value, $Res Function(ImageFailure) then) =
+      _$ImageFailureCopyWithImpl<$Res, ImageFailure>;
+}
+
+/// @nodoc
+class _$ImageFailureCopyWithImpl<$Res, $Val extends ImageFailure>
+    implements $ImageFailureCopyWith<$Res> {
+  _$ImageFailureCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+}
+
+/// @nodoc
+abstract class _$$_ImageFailureCopyWith<$Res> {
+  factory _$$_ImageFailureCopyWith(
+          _$_ImageFailure value, $Res Function(_$_ImageFailure) then) =
+      __$$_ImageFailureCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_ImageFailureCopyWithImpl<$Res>
+    extends _$ImageFailureCopyWithImpl<$Res, _$_ImageFailure>
+    implements _$$_ImageFailureCopyWith<$Res> {
+  __$$_ImageFailureCopyWithImpl(
+      _$_ImageFailure _value, $Res Function(_$_ImageFailure) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_ImageFailure implements _ImageFailure {
+  const _$_ImageFailure();
+
+  @override
+  String toString() {
+    return 'ImageFailure()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_ImageFailure);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function() $default, {
+    required TResult Function() rosInvalidImage,
+  }) {
+    return $default();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult? Function()? $default, {
+    TResult? Function()? rosInvalidImage,
+  }) {
+    return $default?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function()? $default, {
+    TResult Function()? rosInvalidImage,
+    required TResult orElse(),
+  }) {
+    if ($default != null) {
+      return $default();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(_ImageFailure value) $default, {
+    required TResult Function(RosInvalidImage value) rosInvalidImage,
+  }) {
+    return $default(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult? Function(_ImageFailure value)? $default, {
+    TResult? Function(RosInvalidImage value)? rosInvalidImage,
+  }) {
+    return $default?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_ImageFailure value)? $default, {
+    TResult Function(RosInvalidImage value)? rosInvalidImage,
+    required TResult orElse(),
+  }) {
+    if ($default != null) {
+      return $default(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ImageFailure implements ImageFailure {
+  const factory _ImageFailure() = _$_ImageFailure;
+}
+
+/// @nodoc
+abstract class _$$RosInvalidImageCopyWith<$Res> {
+  factory _$$RosInvalidImageCopyWith(
+          _$RosInvalidImage value, $Res Function(_$RosInvalidImage) then) =
+      __$$RosInvalidImageCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$RosInvalidImageCopyWithImpl<$Res>
+    extends _$ImageFailureCopyWithImpl<$Res, _$RosInvalidImage>
+    implements _$$RosInvalidImageCopyWith<$Res> {
+  __$$RosInvalidImageCopyWithImpl(
+      _$RosInvalidImage _value, $Res Function(_$RosInvalidImage) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$RosInvalidImage implements RosInvalidImage {
+  const _$RosInvalidImage();
+
+  @override
+  String toString() {
+    return 'ImageFailure.rosInvalidImage()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$RosInvalidImage);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function() $default, {
+    required TResult Function() rosInvalidImage,
+  }) {
+    return rosInvalidImage();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult? Function()? $default, {
+    TResult? Function()? rosInvalidImage,
+  }) {
+    return rosInvalidImage?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function()? $default, {
+    TResult Function()? rosInvalidImage,
+    required TResult orElse(),
+  }) {
+    if (rosInvalidImage != null) {
+      return rosInvalidImage();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(_ImageFailure value) $default, {
+    required TResult Function(RosInvalidImage value) rosInvalidImage,
+  }) {
+    return rosInvalidImage(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult? Function(_ImageFailure value)? $default, {
+    TResult? Function(RosInvalidImage value)? rosInvalidImage,
+  }) {
+    return rosInvalidImage?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_ImageFailure value)? $default, {
+    TResult Function(RosInvalidImage value)? rosInvalidImage,
+    required TResult orElse(),
+  }) {
+    if (rosInvalidImage != null) {
+      return rosInvalidImage(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class RosInvalidImage implements ImageFailure {
+  const factory RosInvalidImage() = _$RosInvalidImage;
+}

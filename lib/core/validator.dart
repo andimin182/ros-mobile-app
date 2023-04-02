@@ -1,8 +1,15 @@
 import 'dart:typed_data';
-import 'dart:ui' as ui;
+import 'package:dartz/dartz.dart';
+import 'package:image/image.dart';
+import 'package:ros_app/core/failures.dart';
 
-Future<ui.Image> isImageDataValid(Uint8List imageData) async {
-  ui.Codec codec = await ui.instantiateImageCodec(imageData);
-  ui.FrameInfo frameInfo = await codec.getNextFrame();
-  return frameInfo.image;
+Either<ImageFailure, Uint8List> validateRosImage(Uint8List data) {
+// Only jpeg and png format is accepted
+  final jpg = JpegDecoder();
+  final png = PngDecoder();
+  if (jpg.isValidFile(data) || png.isValidFile(data)) {
+    return Right(data);
+  } else {
+    return Left(ImageFailure.rosInvalidImage());
+  }
 }
