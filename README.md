@@ -2,7 +2,7 @@
 
 A **Flutter mobile application** for controlling a **ROS 2-based 4-wheel Ackermann steering robotic car** via **rosbridge**.  
 
-![ROS Flutter Car Control](images/ros_flutter_car.png)  
+![ROS Flutter Car Control](ros2-app.png)  
 
 The app acts as a ROS node, publishing commands to the robot over Wi-Fi.
 
